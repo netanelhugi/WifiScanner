@@ -5,10 +5,7 @@ package filters;
 
 import static org.junit.Assert.*;
 
-
 import java.io.IOException;
-import java.util.Arrays;
-import matala.*;
 
 import org.junit.Test;
 

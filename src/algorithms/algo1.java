@@ -4,10 +4,12 @@
 package algorithms;
 
 import java.util.Collections;
+import myObjects.*;
 
-import matala.*;
 import java.util.Comparator;
 import java.util.LinkedList;
+
+import mainPackage.*;
 
 // TODO: Auto-generated Javadoc
 /**

@@ -11,7 +11,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 import javax.security.auth.callback.LanguageCallback;
-import matala.*;
+
+import mainPackage.*;
+import myObjects.*;
 
 // TODO: Auto-generated Javadoc
 /**

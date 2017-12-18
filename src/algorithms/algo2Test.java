@@ -10,7 +10,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 import org.junit.Test;
-import matala.*;
+
+import mainPackage.*;
+import myObjects.*;
 
 // TODO: Auto-generated Javadoc
 /**

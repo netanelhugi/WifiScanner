@@ -4,16 +4,16 @@
 package algorithms;
 
 import java.io.IOException;
-import matala.*;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
+import myObjects.*;
 
 import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
+import mainPackage.*;
 
 // TODO: Auto-generated Javadoc
 /**

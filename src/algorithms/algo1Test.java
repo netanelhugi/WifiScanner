@@ -1,12 +1,12 @@
 package algorithms;
 
 import static org.junit.Assert.*;
-
-
 import java.util.LinkedList;
+import myObjects.*;
 
 import org.junit.Test;
-import matala.*;
+
+import mainPackage.*;
 
 // TODO: Auto-generated Javadoc
 /**

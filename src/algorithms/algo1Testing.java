@@ -1,12 +1,13 @@
 package algorithms;
 
 import java.io.File;
-import matala.*;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedList;
+
+import mainPackage.*;
+import myObjects.*;
 
 // TODO: Auto-generated Javadoc
 /**
