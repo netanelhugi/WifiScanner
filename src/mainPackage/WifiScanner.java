@@ -53,12 +53,16 @@ public class WifiScanner {
 	 * 
 	 * The name of the files from "Wigle-wifi" app should be in the following
 	 * format: "WigleWifi_yyyymmddhhmmss".
+	 * 
+	 * first row of input file need to be data from app.
+	 * second row is headers of lines.
+	 * and others rows is wifi's data.
 	 *
 	 * @param folderPath            the folder path
 	 * @return the Wifi[][]
 	 * @throws Exception             the exception
 	 */
-	public static Wifi[][] filesReader(String folderPath) throws Exception {
+	public static LinkedList<Checks> filesReader(String folderPath) throws Exception {
 
 		File directory = new File(folderPath);
 		File[] fList = directory.listFiles();
@@ -112,12 +116,16 @@ public class WifiScanner {
 
 					String str;
 					str = br.readLine();
+					
 
 					if (str == null) {
 						System.out.println(file.getName() + " is empty!");
 						continue;
 					}
 
+					System.out.println("first");
+					System.out.println(str);
+					
 					String user = userName(str);
 
 					str = br.readLine();
@@ -135,7 +143,7 @@ public class WifiScanner {
 
 					for (int i = 0; i < wifiNumber; i++) {
 						Wifi net = new Wifi();
-
+						System.out.println(str);
 						double[] coordi = findCoordinate(str);
 						net.setLat(coordi[0]);
 						net.setLon(coordi[1]);
@@ -166,9 +174,10 @@ public class WifiScanner {
 		int n = wifiList.size();
 
 		Wifi[][] wifiMat = new Wifi[wifiList.size()][1];
+		LinkedList<Checks> checksList = new LinkedList<>();
 
 		for (int i = 0; i < n; i++) {
-			Wifi a = wifiList.pop();
+			Wifi a = wifiList.get(i);
 			wifiMat[i][0] = a;
 		}
 
@@ -205,6 +214,8 @@ public class WifiScanner {
 
 			Wifi first = byloc.peek();
 			
+			Checks ac = new Checks();
+			
 			try{
 				
 			writer.append(first.getTime());
@@ -220,9 +231,19 @@ public class WifiScanner {
 			writer.append(wifiNum);
 			writer.append(",");
 			
+			ac.setTime(first.getTime());
+			ac.setId(first.getUser());
+			ac.setLat(first.getLat());
+			ac.setLon(first.getLon());
+			ac.setAlt(first.getAlt());
+			ac.setWifiCount(wifiNum);
+			
+
+
 			
 			for (int j = 0; j < wifiNum; j++) {
 				Wifi a = byloc.pop();
+				System.out.println(a);
 				writer.append(a.getSsid());
 				writer.append(",");
 				writer.append(a.getMac());
@@ -231,6 +252,50 @@ public class WifiScanner {
 				writer.append(",");
 				writer.append(a.getSignal());
 				writer.append(",");
+				
+				if(j==0){
+					WifiSort ws1 = new WifiSort(a.getMac(), a.getSsid(), a.getChannel(), a.getSignal());
+					ac.setWifi1(ws1);
+				}
+				
+				else if(j==1){
+					WifiSort ws1 = new WifiSort(a.getMac(), a.getSsid(), a.getChannel(), a.getSignal());
+					ac.setWifi2(ws1);
+				}
+				else if(j==2){
+					WifiSort ws1 = new WifiSort(a.getMac(), a.getSsid(), a.getChannel(), a.getSignal());
+					ac.setWifi3(ws1);
+				}
+				else if(j==3){
+					WifiSort ws1 = new WifiSort(a.getMac(), a.getSsid(), a.getChannel(), a.getSignal());
+					ac.setWifi4(ws1);
+				}
+				else if(j==4){
+					WifiSort ws1 = new WifiSort(a.getMac(), a.getSsid(), a.getChannel(), a.getSignal());
+					ac.setWifi5(ws1);
+				}
+				else if(j==5){
+					WifiSort ws1 = new WifiSort(a.getMac(), a.getSsid(), a.getChannel(), a.getSignal());
+					ac.setWifi6(ws1);
+				}
+				else if(j==6){
+					WifiSort ws1 = new WifiSort(a.getMac(), a.getSsid(), a.getChannel(), a.getSignal());
+					ac.setWifi7(ws1);
+				}
+				else if(j==7){
+					WifiSort ws1 = new WifiSort(a.getMac(), a.getSsid(), a.getChannel(), a.getSignal());
+					ac.setWifi8(ws1);
+				}
+				else if(j==8){
+					WifiSort ws1 = new WifiSort(a.getMac(), a.getSsid(), a.getChannel(), a.getSignal());
+					ac.setWifi9(ws1);
+				}
+				else if(j==9){
+					WifiSort ws1 = new WifiSort(a.getMac(), a.getSsid(), a.getChannel(), a.getSignal());
+					ac.setWifi10(ws1);
+				}
+				
+				
 
 			}
 			diff = false;
@@ -241,12 +306,13 @@ public class WifiScanner {
 				
 			}
 			
+			checksList.add(ac);
 
 		}
 		pw.write(writer.toString());
 
 		pw.close();
-		return wifiMat;
+		return checksList;
 
 	}
 
@@ -348,6 +414,7 @@ public class WifiScanner {
 				if (cou1 == 2)
 					user += str.charAt(i);
 			}
+			System.out.println(s);
 			user = user.substring(7, user.length());
 		}
 		return user;
@@ -371,6 +438,7 @@ public class WifiScanner {
 		String lon = "";
 		// alt = [2]
 		String alt = "";
+		
 
 		while (couStr < 10) {
 			for (int i = 0; i < s.length(); i++) {
