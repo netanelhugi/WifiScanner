@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.EventQueue;
+import java.awt.Label;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,6 +20,10 @@ import mainPackage.*;
 import algorithms.*;
 import filters.*;
 import myObjects.*;
+import java.awt.TextField;
+import java.awt.event.TextListener;
+import java.awt.event.TextEvent;
+import java.awt.Color;
 
 public class gui {
 
@@ -60,6 +65,7 @@ public class gui {
 		frame.getContentPane().setLayout(null);
 		
 		Button button = new Button("Choose folder");
+		button.setBackground(Color.LIGHT_GRAY);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/**
@@ -103,8 +109,11 @@ public class gui {
 		frame.getContentPane().add(button);
 		
 		Button button_1 = new Button("Clean data");
+		button_1.setBackground(Color.LIGHT_GRAY);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				lc.clear();
 				
 			}
 		});
@@ -129,6 +138,7 @@ public class gui {
 		frame.getContentPane().add(button_2);
 		
 		Button button_3 = new Button("to kml");
+		button_3.setBackground(Color.LIGHT_GRAY);
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -174,5 +184,20 @@ public class gui {
 		});
 		button_4.setBounds(0, 24, 78, 21);
 		frame.getContentPane().add(button_4);
+		
+		TextField textField = new TextField();
+		textField.addTextListener(new TextListener() {
+			
+			   private Label statusLabel;
+
+			
+			public void textValueChanged(TextEvent arg0){ 
+			
+				statusLabel.setText("lines: " + lc.size());
+			
+			}
+		});
+		textField.setBounds(0, 133, 78, 110);
+		frame.getContentPane().add(textField);
 	}
 }
