@@ -125,13 +125,11 @@ public class Wifi {
 		this.user = user;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Wifi [Mac=" + Mac + ", time=" + time + ", ssid=" + ssid + ", channel=" + channel + ", signal=" + signal
-				+ ", lat=" + lat + ", lon=" + lon + ", alt=" + alt + "]";
+				+ ", lat=" + lat + ", lon=" + lon + ", alt=" + alt + ", user=" + user + ", bool=" + bool + ", wdiff="
+				+ wdiff + "]";
 	}
 
 	/**

@@ -96,7 +96,7 @@ public class toCSV {
 
 	}
 	
-	public void toCsvFromList(LinkedList<Checks> a) throws FileNotFoundException {
+	public void toCsvFromList(LinkedList<Checks> a, String dir) throws FileNotFoundException {
 
 		/**
 		 * this method get matrix and name of the new file. she print the data
@@ -104,7 +104,7 @@ public class toCSV {
 		 * filters).
 		 */
 
-		PrintWriter pw = new PrintWriter(new File("GuiCsv.csv"));
+		PrintWriter pw = new PrintWriter(new File(dir+"GuiCsv.csv"));
 		StringBuilder writer = new StringBuilder();
 
 		try {

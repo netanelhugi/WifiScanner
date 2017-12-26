@@ -66,6 +66,8 @@ public class toKML {
 		for (int i = 0; i <wi.size(); i++) {
 
 			if (wi.get(i).isBool() == true) {
+				
+				System.out.println("trueeeee");
 
 				createPlacemarkWithChart(doc, folder,wi.get(i));
 			}

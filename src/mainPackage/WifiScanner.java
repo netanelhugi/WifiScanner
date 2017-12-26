@@ -63,6 +63,10 @@ public class WifiScanner {
 	 * @throws Exception             the exception
 	 */
 	public static LinkedList<Checks> filesReader(String folderPath) throws Exception {
+		
+		if(folderPath==""){
+			return null;
+		}
 
 		File directory = new File(folderPath);
 		File[] fList = directory.listFiles();
