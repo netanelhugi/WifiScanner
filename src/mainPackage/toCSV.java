@@ -141,6 +141,8 @@ public class toCSV {
 		}
 
 		for (int i = 0; i < a.size(); i++) {
+			
+			if(a.get(i).isBool()){
 
 			int n = a.get(i).getWifiCount();
 			
@@ -259,6 +261,7 @@ public class toCSV {
 				}
 			writer.append('\n');
 
+			}
 		}
 
 		pw.write(writer.toString());

@@ -129,4 +129,19 @@ public class MatrixSortByMAC {
 				return a;
 			}
 			
+			public static LinkedList<Wifi> findMac(LinkedList<Wifi> a, String mac){
+				LinkedList<Wifi> ans = new LinkedList<Wifi>();
+				for(int i=0; i<a.size(); i++){
+				Wifi wi = a.get(i);
+				if(wi.getMac().equals(mac)){
+				ans.add(wi);
+				System.out.println("yesdsf");
+				}
+				else{
+					System.out.println(wi.getMac());
+				}
+				}
+				return ans;
+			}
+			
 }

@@ -26,9 +26,8 @@ public class IDfilter implements filter{
 
 	
 		
-	@Override
 	public String toString() {
-		return "IDfilter [ID=" + ID + "]";
+		return ""+this.getClass().getName()+" ["+this.ID+"]";
 	}
 
 

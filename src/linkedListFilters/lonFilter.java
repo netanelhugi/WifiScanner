@@ -24,6 +24,10 @@ public class lonFilter implements filter{
 		}
 		return ans;
 	}
+	
+	public String toString() {
+		return ""+this.getClass().getName()+" ["+this.minLon+","+this.maxLon+"]";
+	}
 
 	
 	/********** Private data can be located anywhere *************/

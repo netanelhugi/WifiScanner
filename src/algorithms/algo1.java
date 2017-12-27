@@ -107,6 +107,8 @@ public class algo1 {
 	 */
 	public static Wifi Waverage(LinkedList<Wifi> a){
 		
+		System.out.println(a.size());
+		
 		sortBySignal(a);
 		
 		if(a.size()==1){

@@ -24,6 +24,10 @@ public class latFilter implements filter{
 		}
 		return ans;
 	}
+	
+	public String toString() {
+		return ""+this.getClass().getName()+" ["+minLat+","+maxLat+"]";
+	}
 
 	
 	/********** Private data can be located anywhere *************/

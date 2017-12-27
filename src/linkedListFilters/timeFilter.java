@@ -19,7 +19,7 @@ public class timeFilter implements filter{
 		boolean ans = false;
 		if(rec!=null) {
 			String t = rec.getTime();
-			t = t.substring(11);
+			//t = t.substring(11);
 			System.out.println(t);
 			int ts = _start.compareTo(t);
 			int te = _end.compareTo(t);
@@ -33,7 +33,7 @@ public class timeFilter implements filter{
 	}
 
 	public String toString() {
-		return ""+this.getClass().getName()+" ["+this._start+","+_end+"]";
+		return ""+this.getClass().getName()+" ["+this._start+","+this._end+"]";
 	}
 		
 	/********** Private data can be located anywhere *************/

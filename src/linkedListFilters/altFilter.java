@@ -24,6 +24,10 @@ public class altFilter implements filter{
 		}
 		return ans;
 	}
+	
+	public String toString() {
+		return ""+this.getClass().getName()+" ["+this.minAlt+","+this.maxAlt+"]";
+	}
 
 	
 	/********** Private data can be located anywhere *************/
