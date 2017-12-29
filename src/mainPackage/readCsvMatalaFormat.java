@@ -375,6 +375,7 @@ public class readCsvMatalaFormat {
 
 							signal = sig1;
 							WifiSort ws1 = new WifiSort(mac, ssid, ch, signal);
+							c.setWifi1(ws1);
 						} else if (psik == 10) {
 							ssid = t;
 
@@ -794,5 +795,412 @@ public class readCsvMatalaFormat {
 		System.out.println("countL:" + wi.size());
 		return wi;
 
+	}
+	
+	
+public static Checks StringToChecks(String s) {
+		
+		int psik = 0;
+		String a = "";
+
+		
+		LinkedList<WifiSort> lSort = new LinkedList<>();
+		
+		Checks c = new Checks();
+		
+		int count = 1;
+		//int psik = 0;
+		String t = "";
+
+		String ssid = "";
+		String mac = "";
+		int signal = 0;
+		int ch = 0;
+
+		
+		for (int i = 0; i < s.length(); i++) {
+			
+			if (s.charAt(i) == ',') {
+
+				if (psik == 0) {
+					c.setTime(t);
+				} 
+				else if (psik == 1) {
+					c.setId(t);
+				} 
+				else if (psik == 2) {
+					double a0;
+
+					if (t.contains("?")) {
+						a0 = 0;
+					} 
+					else {
+						a0 = Double.parseDouble(t);
+					}
+
+					c.setLat(a0);
+				} 
+				else if (psik == 3) {
+					double a1;
+
+					if (t.contains("?")) {
+						a1 = 0;
+					} else {
+						a1 = Double.parseDouble(t);
+					}
+
+					c.setLon(a1);
+				} 
+				else if (psik == 4) {
+					double a2;
+
+					if (t.contains("?")) {
+						a2 = 0;
+					} else {
+						a2 = Double.parseDouble(t);
+					}
+
+					c.setAlt(a2);
+				} else if (psik == 5) {
+
+					int b = 0;
+
+					if (t == "") {
+						b = 0;
+					} else {
+						b = Integer.parseInt(t);
+					}
+
+					c.setWifiCount(b);
+				} else if (psik == 6) {
+					ssid = t;
+				} else if (psik == 7) {
+					mac = t;
+				} else if (psik == 8) {
+
+					int ch1 = 0;
+
+					if (t == "") {
+						ch1 = 0;
+					} else {
+						ch1 = Integer.parseInt(t);
+					}
+
+					ch = ch1;
+				} else if (psik == 9) {
+					int sig1 = 0;
+
+					if (t == "") {
+						sig1 = 0;
+					} else {
+						sig1 = (int) Double.parseDouble(t);
+					}
+
+					signal = sig1;
+					WifiSort ws1 = new WifiSort(mac, ssid, ch, signal);
+					c.setWifi1(ws1);
+				} 
+				else if (psik == 10) {
+					ssid = t;
+
+				} else if (psik == 11) {
+					mac = t;
+				} else if (psik == 12) {
+
+					int ch2 = 0;
+
+					if (t == "") {
+						ch2 = 0;
+					} else {
+						ch2 = Integer.parseInt(t);
+					}
+
+					ch = ch2;
+				} else if (psik == 13) {
+					int sig2 = 0;
+
+					if (t == "") {
+						sig2 = 0;
+					} else {
+						sig2 = (int) Double.parseDouble(t);
+					}
+					signal = sig2;
+					WifiSort ws = new WifiSort(mac, ssid, ch, signal);
+					c.setWifi2(ws);
+
+				} else if (psik == 14) {
+					ssid = t;
+
+				} else if (psik == 15) {
+					mac = t;
+
+				} else if (psik == 16) {
+
+					int ch3 = 0;
+
+					if (t == "") {
+						ch3 = 0;
+					} else {
+						ch3 = Integer.parseInt(t);
+					}
+
+					ch = ch3;
+
+				} else if (psik == 17) {
+
+					int sig3 = 0;
+
+					if (t == "") {
+						sig3 = 0;
+					} else {
+						sig3 = (int) Double.parseDouble(t);
+					}
+
+					signal = sig3;
+					WifiSort ws = new WifiSort(mac, ssid, ch, signal);
+					c.setWifi3(ws);
+
+				} else if (psik == 18) {
+					ssid = t;
+
+				} else if (psik == 19) {
+					mac = t;
+
+				} else if (psik == 20) {
+
+					int ch4 = 0;
+
+					if (t == "") {
+						ch4 = 0;
+					} else {
+						ch4 = Integer.parseInt(t);
+					}
+					ch = ch4;
+
+				} else if (psik == 21) {
+
+					int sig4 = 0;
+
+					if (t == "") {
+						sig4 = 0;
+					} else {
+						sig4 = (int) Double.parseDouble(t);
+					}
+					signal = sig4;
+					WifiSort ws = new WifiSort(mac, ssid, ch, signal);
+					c.setWifi4(ws);
+
+				} else if (psik == 22) {
+					ssid = t;
+
+					
+				} else if (psik == 23) {
+					mac = t;
+
+				} else if (psik == 24) {
+
+					int ch5 = 0;
+
+					if (t == "") {
+						ch5 = 0;
+					} else {
+						ch5 = Integer.parseInt(t);
+					}
+					ch = ch5;
+
+				} else if (psik == 25) {
+
+					int sig5 = 0;
+
+					if (t == "") {
+						sig5 = 0;
+					} else {
+						sig5 = (int) Double.parseDouble(t);
+					}
+					signal = sig5;
+					WifiSort ws = new WifiSort(mac, ssid, ch, signal);
+					c.setWifi5(ws);
+
+				}
+
+				else if (psik == 26) {
+					ssid = t;
+
+				} else if (psik == 27) {
+					mac = t;
+
+				} else if (psik == 28) {
+
+					int ch6 = 0;
+
+					if (t == "") {
+						ch6 = 0;
+					} else {
+						ch6 = Integer.parseInt(t);
+					}
+					ch = ch6;
+
+				} else if (psik == 29) {
+
+					int sig6 = 0;
+
+					if (t == "") {
+						sig6 = 0;
+					} else {
+						sig6 = (int) Double.parseDouble(t);
+					}
+					signal = sig6;
+					WifiSort ws = new WifiSort(mac, ssid, ch, signal);
+					c.setWifi6(ws);
+
+				}
+
+				else if (psik == 30) {
+					ssid = t;
+
+				} else if (psik == 31) {
+					mac = t;
+
+				} else if (psik == 32) {
+
+					int ch7 = 0;
+
+					if (t == "") {
+						ch7 = 0;
+					} else {
+						ch7 = Integer.parseInt(t);
+					}
+					ch = ch7;
+
+				} else if (psik == 33) {
+
+					int sig7 = 0;
+
+					if (t == "") {
+						sig7 = 0;
+					} else {
+						sig7 = (int) Double.parseDouble(t);
+					}
+					signal = sig7;
+					WifiSort ws = new WifiSort(mac, ssid, ch, signal);
+					c.setWifi7(ws);
+
+				} else if (psik == 34) {
+					ssid = t;
+
+				} else if (psik == 35) {
+					mac = t;
+
+				} else if (psik == 36) {
+					int ch8 = 0;
+
+					if (t == "") {
+						ch8 = 0;
+					} 
+					else{
+						try{
+						ch8 = Integer.parseInt(t);
+						}
+						catch (Exception e) {
+							ch8 = 0;
+							}
+					}
+					ch = ch8;
+
+				} else if (psik == 37) {
+
+					int sig8 = 0;
+
+					if (t == "") {
+						sig8 = 0;
+					} 
+					else {
+						
+						try{
+							sig8 = (int) Double.parseDouble(t);
+							}
+							catch (Exception e) {
+								System.out.println("no signal");
+								sig8 = -120;
+								}
+						
+					}
+					signal = sig8;
+					WifiSort ws = new WifiSort(mac, ssid, ch, signal);
+					c.setWifi8(ws);
+
+				}
+
+				else if (psik == 38) {
+					ssid = t;
+
+				} else if (psik == 39) {
+					mac = t;
+
+				} else if (psik == 40) {
+
+					int ch9 = 0;
+
+					if (t == "") {
+						ch9 = 0;
+					} else {
+						ch9 = Integer.parseInt(t);
+					}
+					ch = ch9;
+
+				} else if (psik == 41) {
+
+					int sig9 = 0;
+
+					if (t == "") {
+						sig9 = 0;
+					} else {
+						sig9 = (int) Double.parseDouble(t);
+					}
+					signal = sig9;
+					WifiSort ws = new WifiSort(mac, ssid, ch, signal);
+					c.setWifi9(ws);
+				} else if (psik == 42) {
+					ssid = t;
+
+				} else if (psik == 43) {
+					mac = t;
+
+				} else if (psik == 44) {
+
+					int ch10 = 0;
+
+					if (t == "") {
+						ch10 = 0;
+					} else {
+						ch10 = Integer.parseInt(t);
+					}
+					ch = ch10;
+
+				} else if (psik == 45) {
+
+					int sig10 = 0;
+
+					if (t == "") {
+						sig10 = 0;
+					} else {
+						sig10 = (int) Double.parseDouble(t);
+					}
+					signal = sig10;
+					WifiSort ws = new WifiSort(mac, ssid, ch, signal);
+					c.setWifi10(ws);
+				}
+
+				psik++;
+
+				// n[row][index++] = t;
+				t = "";
+			} else
+				t += s.charAt(i);
+		}
+		
+		return c;
+		
+		
 	}
 }

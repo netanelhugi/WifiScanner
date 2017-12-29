@@ -29,11 +29,19 @@ public class algo2 {
 	 */
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-//8
+
 		
 
 	}
+	
+	//2017-10-27 16:16:45,SHIELD Tablet,?,?,?,10,
+	//HOTBOX-D1D7,fc:b4:e6:cf:d1:dd,1,-77,888Corp,0a:8d:db:6e:71:6d,1,-79,888Guest,02:8d:db:6e:71:bf,1,-80,
+	//888Free,06:8d:db:6e:71:6d,1,-81,888Guest,02:8d:db:6e:71:6d,1,-81,Mouly,7c:b7:33:2e:76:73,11,-83,
+	//888Corp,0a:8d:db:6e:71:bf,1,-86,888Free,06:8d:db:6e:71:bf,1,-86,,06:8d:db:6e:71:be,11,-86,,02:8d:db:6e:71:be,11,-86,
+	
 
+	
+	
 	/**
 	 * W img.
 	 *
@@ -243,6 +251,78 @@ public class algo2 {
 					return -1;
 				}
 				else if(c1.getwDiff()<c2.getwDiff()){
+					return 1;
+				}
+				else
+					return 0;
+				
+			}
+		});
+		return a;
+
+	}
+	
+	public static Checks wifiSort_SortbySignal(Checks c){
+		
+		int n = c.getWifiCount();
+		
+		LinkedList<WifiSort> ws = new LinkedList<>();
+		
+		for(int i=0; i<n; i++){
+			
+			if(i==0)
+				ws.add(c.getWifi1());
+			else if(i==1)
+				ws.add(c.getWifi2());
+			else if(i==2)
+				ws.add(c.getWifi3());
+			else if(i==3)
+				ws.add(c.getWifi4());
+			else if(i==4)
+				ws.add(c.getWifi5());
+			else if(i==5)
+				ws.add(c.getWifi6());
+			else if(i==6)
+				ws.add(c.getWifi7());
+			else if(i==7)
+				ws.add(c.getWifi8());
+			else if(i==8)
+				ws.add(c.getWifi9());
+			else if(i==9)
+				ws.add(c.getWifi10());
+		}
+		
+		ws = sortBySignal(ws);
+		
+		Checks ans = new Checks();
+		
+		ans.setWifi1(ws.get(0));
+		
+		if(ws.size()>1){
+			ans.setWifi2(ws.get(1));
+		}
+		
+		if(ws.size()>2){
+			ans.setWifi3(ws.get(2));
+		}
+		
+		
+		return ans;
+		
+	}
+	
+	
+	public static LinkedList<WifiSort> sortBySignal(LinkedList<WifiSort> a) {
+
+		Collections.sort(a, new Comparator<WifiSort>() {
+			// @Override
+			public int compare(WifiSort c1, WifiSort c2) {
+			
+				
+				if(c1.getSignal()>c2.getSignal()){
+					return -1;
+				}
+				else if(c1.getSignal()<c2.getSignal()){
 					return 1;
 				}
 				else

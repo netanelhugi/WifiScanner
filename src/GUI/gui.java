@@ -22,6 +22,13 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.WatchEvent;
+import java.nio.file.WatchEvent.Kind;
+import java.nio.file.WatchKey;
+import java.nio.file.WatchService;
 import java.util.LinkedList;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -67,8 +74,17 @@ import javax.swing.JFormattedTextField.AbstractFormatter;
 import org.jdatepicker.graphics.JNextIcon;
 import org.jdatepicker.util.JDatePickerUtil;
 import javax.swing.JList;
+import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
+import static java.nio.file.StandardWatchEventKinds.ENTRY_DELETE;
+import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class gui {
+
+	
+
+	protected static final Kind<?> OVERFLOW = null;
 
 	private JFrame frame;
 
@@ -128,6 +144,12 @@ public class gui {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosed(WindowEvent arg0) {
+				System.out.println("netanel");
+			}
+		});
 		frame.getContentPane().setBackground(new Color(240, 240, 240));
 		frame.getContentPane().setForeground(Color.BLUE);
 		frame.setBounds(100, 100, 450, 300);
@@ -222,6 +244,95 @@ public class gui {
 
 					System.out.println("close please");
 				}
+				
+				/**
+				 * http://www.codejava.net/java-se/file-io/file-change-notification-example-with-watch-service-api
+				 */
+				
+				WatchService watcher = null;
+				
+				try {
+					watcher = FileSystems.getDefault().newWatchService();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				Path dir = Paths.get(folder);
+				try {
+					dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				while (true) {
+				    WatchKey key;
+				    try {
+				        // wait for a key to be available
+				        key = watcher.take();
+				    } catch (InterruptedException ex) {
+				        return;
+				    }
+				 
+				    for (WatchEvent<?> event : key.pollEvents()) {
+				        // get event type
+				        WatchEvent.Kind<?> kind = event.kind();
+				 
+				        // get file name
+				        @SuppressWarnings("unchecked")
+				        WatchEvent<Path> ev = (WatchEvent<Path>) event;
+				        Path fileName = ev.context();
+				 
+				        System.out.println(kind.name() + ": " + fileName);
+				 
+				        if (kind == OVERFLOW) {
+				            continue;
+				        } 
+				        else if (kind == ENTRY_CREATE || kind == ENTRY_DELETE || kind == ENTRY_MODIFY) {
+				 
+							JOptionPane.showMessageDialog(frame, "The file folder has been changed");
+							
+							LinkedList<Checks> fromFolder2 = new LinkedList<>();
+							try {
+								fromFolder2 = ws.filesReader(folder);
+							} catch (Exception e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+							
+							lc.clear();
+
+							lc.addAll(fromFolder2);
+
+							for (int i = 0; i < lc.size(); i++) {
+
+								lc.get(i).setBool(true);
+
+							}
+
+							LinkedList<Wifi> wifiFromFolder2 = rc.checksToWifi(lc);
+							wifi.clear();
+							wifi.addAll(wifiFromFolder2);
+
+							System.out.println(lc.size());
+
+							textField_lines.setText(Integer.toString(lc.size()));
+							textField_networks.setText(Integer.toString(wifi.size()));
+
+							break;
+				 
+				        } 
+				       
+				    }
+				 
+				    // IMPORTANT: The key must be reset after processed
+				    boolean valid = key.reset();
+				    if (!valid) {
+				        break;
+				    }
+				}
+
 
 			}
 		});
@@ -1708,7 +1819,7 @@ public class gui {
 		JRadioButton radioButton_algo2B = new JRadioButton("Enter string:");
 		radioButton_algo2B.setFont(new Font("Tahoma", Font.BOLD, 13));
 		radioButton_algo2B.setForeground(Color.BLUE);
-		TextField textField_15 = new TextField();
+		TextField textField_algo2bInput = new TextField();
 
 		JRadioButton radioButton_algo2A = new JRadioButton("");
 		radioButton_algo2A.addActionListener(new ActionListener() {
@@ -1721,7 +1832,7 @@ public class gui {
 				textField_algo2_sig1.setEnabled(true);
 				textField_algo2_sig2.setEnabled(true);
 				textField_algo2_sig3.setEnabled(true);
-				textField_15.setEnabled(false);
+				textField_algo2bInput.setEnabled(false);
 
 			}
 		});
@@ -1739,16 +1850,16 @@ public class gui {
 				textField_algo2_sig1.setEnabled(false);
 				textField_algo2_sig2.setEnabled(false);
 				textField_algo2_sig3.setEnabled(false);
-				textField_15.setEnabled(true);
+				textField_algo2bInput.setEnabled(true);
 
 			}
 		});
 		radioButton_algo2B.setBounds(510, 434, 110, 21);
 		frame.getContentPane().add(radioButton_algo2B);
 
-		textField_15.setEnabled(false);
-		textField_15.setBounds(510, 469, 336, 21);
-		frame.getContentPane().add(textField_15);
+		textField_algo2bInput.setEnabled(false);
+		textField_algo2bInput.setBounds(510, 469, 336, 21);
+		frame.getContentPane().add(textField_algo2bInput);
 
 		TextField textField_algo1lon = new TextField();
 		textField_algo1lon.setFont(new Font("Dialog", Font.BOLD, 12));
@@ -1853,6 +1964,81 @@ public class gui {
 					textField_algo2lon.setText(Double.toString(arr[1]));
 					textField_algo2alt.setText(Double.toString(arr[2]));
 
+				}
+				
+				if(radioButton_algo2B.isSelected()){
+					
+					//2017-10-27 16:16:45,SHIELD Tablet,32.16766121892341,34.80988155918773,39.018065819940986,10,
+					//HOTBOX-D1D7,fc:b4:e6:cf:d1:dd,1,-77,888Corp,0a:8d:db:6e:71:6d,1,-79,888Guest,02:8d:db:6e:71:bf,1,-80,
+					//888Free,06:8d:db:6e:71:6d,1,-81,888Guest,02:8d:db:6e:71:6d,1,-81,Mouly,7c:b7:33:2e:76:73,11,-83,
+					//888Corp,0a:8d:db:6e:71:bf,1,-86,888Free,06:8d:db:6e:71:bf,1,-86,,06:8d:db:6e:71:be,11,-86,,02:8d:db:6e:71:be,11,-86,
+
+					
+					
+					String str = textField_algo2bInput.getText();
+					
+					Checks a = readCsvMatalaFormat.StringToChecks(str);
+					
+					
+					System.out.println(a);
+					
+					Checks b = algo2.wifiSort_SortbySignal(a);
+					
+					System.out.println(b);
+					
+					String mac1 = "";
+					String mac2 = "";
+					String mac3 = "";
+
+					int signal1 = 0;
+					int signal2 = 0;
+					int signal3 = 0;
+					
+					if(b.getWifi1()!=null){
+						mac1 = b.getWifi1().getMac();
+						signal1 = b.getWifi1().getSignal();
+					}
+					else{
+						mac1 = null;	
+					}
+					if(b.getWifi2()!=null){
+						mac2 = b.getWifi2().getMac();
+						signal2 = b.getWifi2().getSignal();
+
+					}
+					else{
+						mac2 = null;	
+					}
+					if(b.getWifi3()!=null){
+						mac3 = b.getWifi3().getMac();
+						signal3 = b.getWifi3().getSignal();
+
+					}
+					else{
+						mac3 = null;	
+					}
+					
+					try{
+					double[] coor = algo2.wImg(lc,mac1, mac2, mac3, signal1, signal2, signal3);
+					
+					textField_algo2lat.setText(Double.toString(coor[0]));
+					textField_algo2lon.setText(Double.toString(coor[1]));
+					textField_algo2alt.setText(Double.toString(coor[2]));
+					
+					}
+					catch (Exception IndexOutOfBoundsException) {
+						
+						JOptionPane.showMessageDialog(frame, "The database is empty, please import files");
+
+						
+					}
+					
+					
+					
+					
+					
+					
+					
 				}
 
 			}
