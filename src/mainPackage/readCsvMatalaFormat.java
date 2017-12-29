@@ -301,6 +301,8 @@ public class readCsvMatalaFormat {
 				Checks c = new Checks();
 				for (int i = 0; i < s.length(); i++) {
 					if (s.charAt(i) == ',') {
+						
+						
 
 						if (psik == 0) {
 							c.setTime(t);
@@ -565,13 +567,19 @@ public class readCsvMatalaFormat {
 							mac = t;
 
 						} else if (psik == 36) {
-							int ch8;
+							int ch8 = 0;
 
 							if (t == "") {
 								ch8 = 0;
-							} else
+							} 
+							else{
+								try{
 								ch8 = Integer.parseInt(t);
-
+								}
+								catch (Exception e) {
+									ch8 = 0;
+									}
+							}
 							ch = ch8;
 
 						} else if (psik == 37) {
@@ -580,8 +588,17 @@ public class readCsvMatalaFormat {
 
 							if (t == "") {
 								sig8 = 0;
-							} else {
-								sig8 = (int) Double.parseDouble(t);
+							} 
+							else {
+								
+								try{
+									sig8 = (int) Double.parseDouble(t);
+									}
+									catch (Exception e) {
+										System.out.println("no signal");
+										sig8 = -120;
+										}
+								
 							}
 							signal = sig8;
 							WifiSort ws = new WifiSort(mac, ssid, ch, signal);
@@ -668,7 +685,9 @@ public class readCsvMatalaFormat {
 			// matrix print
 			// for(int i=0; i<rowNum; i++)
 			// System.out.println(Arrays.toString(n[i]));
-		} catch (FileNotFoundException e) {
+		} 
+		catch (FileNotFoundException e) {
+			System.out.println("worng");
 		}
 		return a;
 	}
@@ -678,85 +697,101 @@ public class readCsvMatalaFormat {
 		LinkedList<Wifi> wi = new LinkedList<>();
 
 		for (int i = 0; i < a.size(); i++) {
-
 			Checks c = a.get(i);
+			
+		
+				
+				for (int j = 0; j < c.getWifiCount(); j++) {
+					Wifi w = new Wifi();
+					
+					if(c.isBool()){
+					w.setBool(true);
+					}
+					else{
+						w.setBool(false);
+					}
+					
+					w.setTime(c.getTime());
+					w.setUser(c.getId());
+					w.setLat(c.getLat());
+					w.setLon(c.getLon());
+					w.setAlt(c.getAlt());
 
-			for (int j = 0; j < c.getWifiCount(); j++) {
-				Wifi w = new Wifi();
-				w.setBool(true);
-				w.setTime(c.getTime());
-				w.setUser(c.getId());
-				w.setLat(c.getLat());
-				w.setLon(c.getLon());
-				w.setAlt(c.getAlt());
+					if (j == 0) {
+						w.setSsid(c.getWifi1().getSsid());
+						w.setMac(c.getWifi1().getMac());
+						w.setChannel(c.getWifi1().getChannel());
+						w.setSignal(c.getWifi1().getChannel());
+					}
 
-				if (j == 0) {
-					w.setSsid(c.getWifi1().getSsid());
-					w.setMac(c.getWifi1().getMac());
-					w.setChannel(c.getWifi1().getChannel());
-					w.setSignal(c.getWifi1().getChannel());
-				}
+					else if (j == 1) {
+						w.setSsid(c.getWifi2().getSsid());
+						w.setMac(c.getWifi2().getMac());
+						w.setChannel(c.getWifi2().getChannel());
+						w.setSignal(c.getWifi2().getChannel());
+					}
 
-				else if (j == 1) {
-					w.setSsid(c.getWifi2().getSsid());
-					w.setMac(c.getWifi2().getMac());
-					w.setChannel(c.getWifi2().getChannel());
-					w.setSignal(c.getWifi2().getChannel());
-				}
+					else if (j == 2) {
+						w.setSsid(c.getWifi3().getSsid());
+						w.setMac(c.getWifi3().getMac());
+						w.setChannel(c.getWifi3().getChannel());
+						w.setSignal(c.getWifi3().getChannel());
+					}
 
-				else if (j == 2) {
-					w.setSsid(c.getWifi3().getSsid());
-					w.setMac(c.getWifi3().getMac());
-					w.setChannel(c.getWifi3().getChannel());
-					w.setSignal(c.getWifi3().getChannel());
-				}
+					else if (j == 3) {
+						w.setSsid(c.getWifi4().getSsid());
+						w.setMac(c.getWifi4().getMac());
+						w.setChannel(c.getWifi4().getChannel());
+						w.setSignal(c.getWifi4().getChannel());
+					}
 
-				else if (j == 3) {
-					w.setSsid(c.getWifi4().getSsid());
-					w.setMac(c.getWifi4().getMac());
-					w.setChannel(c.getWifi4().getChannel());
-					w.setSignal(c.getWifi4().getChannel());
-				}
+					else if (j == 4) {
+						w.setSsid(c.getWifi5().getSsid());
+						w.setMac(c.getWifi5().getMac());
+						w.setChannel(c.getWifi5().getChannel());
+						w.setSignal(c.getWifi5().getChannel());
+					}
 
-				else if (j == 4) {
-					w.setSsid(c.getWifi5().getSsid());
-					w.setMac(c.getWifi5().getMac());
-					w.setChannel(c.getWifi5().getChannel());
-					w.setSignal(c.getWifi5().getChannel());
-				}
+					else if (j == 5) {
+						w.setSsid(c.getWifi6().getSsid());
+						w.setMac(c.getWifi6().getMac());
+						w.setChannel(c.getWifi6().getChannel());
+						w.setSignal(c.getWifi6().getChannel());
+					} else if (j == 6) {
+						w.setSsid(c.getWifi7().getSsid());
+						w.setMac(c.getWifi7().getMac());
+						w.setChannel(c.getWifi7().getChannel());
+						w.setSignal(c.getWifi7().getChannel());
+					} else if (j == 7) {
+						w.setSsid(c.getWifi8().getSsid());
+						w.setMac(c.getWifi8().getMac());
+						w.setChannel(c.getWifi8().getChannel());
+						w.setSignal(c.getWifi8().getChannel());
+					} else if (j == 8) {
+						w.setSsid(c.getWifi9().getSsid());
+						w.setMac(c.getWifi9().getMac());
+						w.setChannel(c.getWifi9().getChannel());
+						w.setSignal(c.getWifi9().getChannel());
+					} else if (j == 9) {
+						w.setSsid(c.getWifi10().getSsid());
+						w.setMac(c.getWifi10().getMac());
+						w.setChannel(c.getWifi10().getChannel());
+						w.setSignal(c.getWifi10().getChannel());
+					}
+					
+					wi.add(w);
+				
+			
 
-				else if (j == 5) {
-					w.setSsid(c.getWifi6().getSsid());
-					w.setMac(c.getWifi6().getMac());
-					w.setChannel(c.getWifi6().getChannel());
-					w.setSignal(c.getWifi6().getChannel());
-				} else if (j == 6) {
-					w.setSsid(c.getWifi7().getSsid());
-					w.setMac(c.getWifi7().getMac());
-					w.setChannel(c.getWifi7().getChannel());
-					w.setSignal(c.getWifi7().getChannel());
-				} else if (j == 7) {
-					w.setSsid(c.getWifi8().getSsid());
-					w.setMac(c.getWifi8().getMac());
-					w.setChannel(c.getWifi8().getChannel());
-					w.setSignal(c.getWifi8().getChannel());
-				} else if (j == 8) {
-					w.setSsid(c.getWifi9().getSsid());
-					w.setMac(c.getWifi9().getMac());
-					w.setChannel(c.getWifi9().getChannel());
-					w.setSignal(c.getWifi9().getChannel());
-				} else if (j == 9) {
-					w.setSsid(c.getWifi10().getSsid());
-					w.setMac(c.getWifi10().getMac());
-					w.setChannel(c.getWifi10().getChannel());
-					w.setSignal(c.getWifi10().getChannel());
-				}
+			
+				
+			
 
-				wi.add(w);
-
+				
 			}
 
 		}
+		System.out.println("countL:" + wi.size());
 		return wi;
 
 	}

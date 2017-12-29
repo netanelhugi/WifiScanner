@@ -12,7 +12,7 @@ import myObjects.*;
  * @author Boaz
  *
  */
-public interface filter{
+public interface filter extends Serializable{
 	/**
 	 * test if the Record rec is pass the filter 
 	 * @param rec

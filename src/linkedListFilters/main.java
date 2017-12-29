@@ -19,6 +19,8 @@ public class main {
 		timeFilter tf = new timeFilter("17:00:00","18:00:00");
 		
 		System.out.println(tf.test(c));
+		
+		AndFilter and = new AndFilter(tf, tf);
 	}
 
 }

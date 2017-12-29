@@ -127,8 +127,6 @@ public class WifiScanner {
 						continue;
 					}
 
-					System.out.println("first");
-					System.out.println(str);
 					
 					String user = userName(str);
 
@@ -147,7 +145,6 @@ public class WifiScanner {
 
 					for (int i = 0; i < wifiNumber; i++) {
 						Wifi net = new Wifi();
-						System.out.println(str);
 						double[] coordi = findCoordinate(str);
 						net.setLat(coordi[0]);
 						net.setLon(coordi[1]);
@@ -247,7 +244,6 @@ public class WifiScanner {
 			
 			for (int j = 0; j < wifiNum; j++) {
 				Wifi a = byloc.pop();
-				System.out.println(a);
 				writer.append(a.getSsid());
 				writer.append(",");
 				writer.append(a.getMac());
@@ -418,7 +414,6 @@ public class WifiScanner {
 				if (cou1 == 2)
 					user += str.charAt(i);
 			}
-			System.out.println(s);
 			user = user.substring(7, user.length());
 		}
 		return user;

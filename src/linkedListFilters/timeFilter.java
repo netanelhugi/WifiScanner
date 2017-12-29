@@ -19,10 +19,11 @@ public class timeFilter implements filter{
 		boolean ans = false;
 		if(rec!=null) {
 			String t = rec.getTime();
-			//t = t.substring(11);
 			System.out.println(t);
 			int ts = _start.compareTo(t);
+			System.out.println("ts: " + ts);
 			int te = _end.compareTo(t);
+			System.out.println("te: " + te);
 	//		System.out.println(_start+"  <  "+t+"   <  "+_end+"  "+ts+"  "+te);
 			// t0.compareTo(t)<0 && t1.compareTo(t)>0
 			if(ts<=0 && te>0) {
