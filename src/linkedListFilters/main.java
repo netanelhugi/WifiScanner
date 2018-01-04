@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package linkedListFilters;
 
 import java.util.LinkedList;
@@ -20,7 +23,6 @@ public class main {
 		
 		System.out.println(tf.test(c));
 		
-		AndFilter and = new AndFilter(tf, tf);
 	}
 
 }

@@ -1,10 +1,13 @@
+/*
+ * 
+ */
 package linkedListFilters;
 
 import myObjects.*;
 
 /**
-	 * This class represents a simple time filter based on a 1D time window range
-	 * @author Boaz
+	 * This class represents a simple loction filter based on a lat range
+	 * 
 	 *
 	 */
 public class latFilter implements filter{

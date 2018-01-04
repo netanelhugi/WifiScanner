@@ -1,9 +1,16 @@
+/*
+ * 
+ */
 package linkedListFilters;
 
 import myObjects.*;
 
 /**
 	 * This class represents a simple time filter based on a 1D time window range
+	 * 
+	 *  this class take from assignment solution github
+	 * https://github.com/benmoshe/OOP_Exe
+	 * 
 	 * @author Boaz
 	 *
 	 */

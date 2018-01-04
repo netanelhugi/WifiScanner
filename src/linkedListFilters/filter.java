@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package linkedListFilters;
 
 import java.io.Serializable;
@@ -9,6 +12,10 @@ import myObjects.*;
 
 /**
  * This interface represents a simple boolean filter
+ * 
+ * this class take from assignment solution github
+ * https://github.com/benmoshe/OOP_Exe
+ * 
  * @author Boaz
  *
  */

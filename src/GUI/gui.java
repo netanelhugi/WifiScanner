@@ -1,14 +1,18 @@
+/*
+ * 
+ */
 package GUI;
 
 import java.awt.EventQueue;
 import java.awt.Label;
 import java.awt.Panel;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JFileChooser;
 import de.micromata.opengis.kml.v_2_2_0.Folder;
 import de.micromata.opengis.kml.v_2_2_0.Update;
+import exportFiles.toCSV;
+import exportFiles.toKML;
 
 import java.awt.Button;
 import java.awt.event.ActionListener;
@@ -34,8 +38,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import mainPackage.*;
 import algorithms.*;
-import filters.*;
-import linkedListFilters.AndFilter;
 import linkedListFilters.IDfilter;
 import linkedListFilters.altFilter;
 import linkedListFilters.filter;
@@ -49,6 +51,9 @@ import java.awt.event.TextEvent;
 import java.awt.Color;
 import javax.swing.JTextArea;
 import com.sun.xml.bind.v2.model.core.WildcardTypeInfo;
+
+import UnusedFilters.*;
+
 import javax.swing.JPasswordField;
 import javax.swing.JProgressBar;
 import java.awt.Component;
@@ -64,7 +69,6 @@ import javax.swing.UIManager;
 import java.awt.SystemColor;
 import java.awt.Font;
 import java.awt.Frame;
-
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
 import org.jdatepicker.JDatePicker;
@@ -80,7 +84,8 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-public class gui {
+
+public class gui extends Thread{
 
 	
 
@@ -90,6 +95,9 @@ public class gui {
 
 	LinkedList<Checks> lc = new LinkedList<>();
 	LinkedList<Wifi> wifi = new LinkedList<>();
+	
+	static String folder = "";
+
 
 	timeFilter time;
 	IDfilter id;
@@ -125,6 +133,17 @@ public class gui {
 				try {
 					gui window = new gui();
 					window.frame.setVisible(true);
+					
+					
+					Thread t1 = new Thread(window);
+					
+					t1.start();
+					
+					
+					
+					
+
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -136,7 +155,9 @@ public class gui {
 	 * Create the application.
 	 */
 	public gui() {
+		
 		initialize();
+		
 	}
 
 	/**
@@ -197,10 +218,9 @@ public class gui {
 				 * take from:
 				 * https://stackoverflow.com/questions/10621687/how-to-get-full-path-directory-from-file-chooser
 				 */
-				String folder = "";
 				JFileChooser chooser = new JFileChooser();
 				chooser.setCurrentDirectory(new java.io.File("."));
-				chooser.setDialogTitle("choosertitle");
+				chooser.setDialogTitle("Choose folder");
 				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 				chooser.setAcceptAllFileFilterUsed(false);
 
@@ -236,6 +256,108 @@ public class gui {
 
 						textField_lines.setText(Integer.toString(lc.size()));
 						textField_networks.setText(Integer.toString(wifi.size()));
+						
+				            new Thread() {
+				                @Override
+				                public void run() {
+				                	
+				                	WatchService watcher = null;
+				            		
+				            		try {
+				            			watcher = FileSystems.getDefault().newWatchService();
+				            		} catch (IOException e1) {
+				            			// TODO Auto-generated catch block
+				            			e1.printStackTrace();
+				            		}
+				            		
+				            		Path dir = Paths.get(folder);
+				            		try {
+				            			dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
+				            		} catch (IOException e1) {
+				            			// TODO Auto-generated catch block
+				            			e1.printStackTrace();
+				            		}
+				            		
+				            		while (true) {
+				            		    WatchKey key = null;
+				            		    try {
+				            		        // wait for a key to be available
+				            		        key = watcher.take();
+				            		    } catch (InterruptedException ex) {
+				            		    }
+				            		 
+				            		    for (WatchEvent<?> event : key.pollEvents()) {
+				            		        // get event type
+				            		        WatchEvent.Kind<?> kind = event.kind();
+				            		 
+				            		        // get file name
+				            		        @SuppressWarnings("unchecked")
+				            		        WatchEvent<Path> ev = (WatchEvent<Path>) event;
+				            		        Path fileName = ev.context();
+				            		 
+				            		        System.out.println(kind.name() + ": " + fileName);
+				            		 
+				            		        if (kind == OVERFLOW) {
+				            		            continue;
+				            		        } 
+				            		        else if (kind == ENTRY_CREATE || kind == ENTRY_DELETE || kind == ENTRY_MODIFY) {
+				            		 
+				            					
+				            					LinkedList<Checks> fromFolder2 = new LinkedList<>();
+				            					try {
+				            						
+					            					JOptionPane.showMessageDialog(frame, "The file folder has been changed");
+					            					
+					            					
+					        						fromFolder2 = ws.filesReader(folder);
+					        						lc.clear();
+					        						lc.addAll(fromFolder2);
+
+					        						for (int i = 0; i < lc.size(); i++) {
+
+					        							lc.get(i).setBool(true);
+
+					        						}
+
+					        						LinkedList<Wifi> wifiFromFolder2 = rc.checksToWifi(lc);
+					        						wifi.clear();
+					        						wifi.addAll(wifiFromFolder2);
+
+					        						System.out.println(lc.size());
+
+					        						textField_lines.setText(Integer.toString(lc.size()));
+					        						textField_networks.setText(Integer.toString(wifi.size()));
+					            					
+				            						
+				            					} 
+				            					catch (Exception e1) {
+				            						
+				            						return;
+				            						
+				            					}
+				            					
+				            		
+
+				            					break;
+				            		 
+				            		        } 
+				            		       
+				            		    }
+				            		 
+				            		    // IMPORTANT: The key must be reset after processed
+				            		    boolean valid = key.reset();
+				            		    if (!valid) {
+				            		        break;
+				            		    }
+				            		}
+				            		
+				   
+				                    
+				                }
+				            }.start();
+						
+						
+
 
 					}
 				} catch (Exception FileNotFoundException) {
@@ -244,95 +366,6 @@ public class gui {
 
 					System.out.println("close please");
 				}
-				
-				/**
-				 * http://www.codejava.net/java-se/file-io/file-change-notification-example-with-watch-service-api
-				 */
-				
-				WatchService watcher = null;
-				
-				try {
-					watcher = FileSystems.getDefault().newWatchService();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-				Path dir = Paths.get(folder);
-				try {
-					dir.register(watcher, ENTRY_CREATE, ENTRY_DELETE, ENTRY_MODIFY);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-				while (true) {
-				    WatchKey key;
-				    try {
-				        // wait for a key to be available
-				        key = watcher.take();
-				    } catch (InterruptedException ex) {
-				        return;
-				    }
-				 
-				    for (WatchEvent<?> event : key.pollEvents()) {
-				        // get event type
-				        WatchEvent.Kind<?> kind = event.kind();
-				 
-				        // get file name
-				        @SuppressWarnings("unchecked")
-				        WatchEvent<Path> ev = (WatchEvent<Path>) event;
-				        Path fileName = ev.context();
-				 
-				        System.out.println(kind.name() + ": " + fileName);
-				 
-				        if (kind == OVERFLOW) {
-				            continue;
-				        } 
-				        else if (kind == ENTRY_CREATE || kind == ENTRY_DELETE || kind == ENTRY_MODIFY) {
-				 
-							JOptionPane.showMessageDialog(frame, "The file folder has been changed");
-							
-							LinkedList<Checks> fromFolder2 = new LinkedList<>();
-							try {
-								fromFolder2 = ws.filesReader(folder);
-							} catch (Exception e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}
-							
-							lc.clear();
-
-							lc.addAll(fromFolder2);
-
-							for (int i = 0; i < lc.size(); i++) {
-
-								lc.get(i).setBool(true);
-
-							}
-
-							LinkedList<Wifi> wifiFromFolder2 = rc.checksToWifi(lc);
-							wifi.clear();
-							wifi.addAll(wifiFromFolder2);
-
-							System.out.println(lc.size());
-
-							textField_lines.setText(Integer.toString(lc.size()));
-							textField_networks.setText(Integer.toString(wifi.size()));
-
-							break;
-				 
-				        } 
-				       
-				    }
-				 
-				    // IMPORTANT: The key must be reset after processed
-				    boolean valid = key.reset();
-				    if (!valid) {
-				        break;
-				    }
-				}
-
 
 			}
 		});
@@ -365,7 +398,7 @@ public class gui {
 
 				JFileChooser chooser = new JFileChooser();
 				chooser.setCurrentDirectory(new java.io.File("."));
-				chooser.setDialogTitle("choosertitle");
+				chooser.setDialogTitle("Save as \"GuiCsv.csv\" ");
 				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 				chooser.setAcceptAllFileFilterUsed(false);
 
@@ -391,8 +424,26 @@ public class gui {
 		Button button_3 = new Button("Save to KML file");
 		button_3.setBounds(0, 234, 125, 52);
 		button_3.setBackground(Color.WHITE);
+	
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				String dir = null;
+
+				
+				JFileChooser chooser = new JFileChooser();
+				chooser.setCurrentDirectory(new java.io.File("."));
+				chooser.setDialogTitle("Save as \"toKmlGUI\" ");
+				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				chooser.setAcceptAllFileFilterUsed(false);
+
+				if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+					System.out.println("getCurrentDirectory(): " + chooser.getCurrentDirectory());
+					System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
+					dir = chooser.getSelectedFile().getAbsolutePath() + "/";
+				} else {
+					System.out.println("No Selection ");
+				}
 
 				readCsvMatalaFormat rcmf = new readCsvMatalaFormat();
 				LinkedList<Wifi> wifiList = rcmf.checksToWifi(lc);
@@ -404,7 +455,7 @@ public class gui {
 
 				toKML tk = new toKML();
 				try {
-					tk.toKml(wifiList, "toKmlGUI");
+					tk.toKml(wifiList,dir+"toKmlGUI");
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -422,7 +473,7 @@ public class gui {
 				String file = "";
 				JFileChooser chooser = new JFileChooser();
 				chooser.setCurrentDirectory(new java.io.File("."));
-				chooser.setDialogTitle("choosertitle");
+				chooser.setDialogTitle("Add csv file to database");
 				chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 				chooser.setAcceptAllFileFilterUsed(false);
 

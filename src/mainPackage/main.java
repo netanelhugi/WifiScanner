@@ -4,8 +4,9 @@
 package mainPackage;
 
 import java.io.IOException;
-import filters.*;
 import java.util.LinkedList;
+
+import UnusedFilters.*;
 import myObjects.*;
 
 // TODO: Auto-generated Javadoc

@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"algorithms"},{"l":"filters"},{"l":"mainPackage"},{"l":"myObjects"}]
+packageSearchIndex = [{"l":"algorithms"},{"l":"filters"},{"l":"GUI"},{"l":"linkedListFilters"},{"l":"mainPackage"},{"l":"myObjects"}]

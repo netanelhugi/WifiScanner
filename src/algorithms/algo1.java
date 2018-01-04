@@ -24,38 +24,6 @@ public class algo1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	
-	
-		Wifi a = new Wifi();
-		a.setSignal(-50);
-		a.setLat(32.103);
-		a.setLon(35.208);
-		a.setAlt(650);
-		
-		Wifi b = new Wifi();
-		b.setSignal(-40);
-		b.setLat(32.105);
-		b.setLon(35.205);
-		b.setAlt(660);
-		
-		Wifi c = new Wifi();
-		c.setSignal(-90);
-		c.setLat(32.103);
-		c.setLon(35.307);
-		c.setAlt(680);
-		
-		LinkedList<Wifi> ll = new LinkedList<>();
-		ll.add(a);
-		ll.add(b);
-		ll.add(c);
-		
-		Wifi test = Waverage(ll);
-		
-		
-		
-		System.out.println(test);
-		
-		
-
 	}
 	
 	/**
@@ -106,6 +74,10 @@ public class algo1 {
 	 * @return the wifi
 	 */
 	public static Wifi Waverage(LinkedList<Wifi> a){
+		
+		/**
+		 * This function 
+		 */
 		
 		System.out.println(a.size());
 		

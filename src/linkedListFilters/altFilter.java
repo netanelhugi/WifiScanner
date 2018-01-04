@@ -1,10 +1,12 @@
+/*
+ * 
+ */
 package linkedListFilters;
 
 import myObjects.*;
 
-/**
-	 * This class represents a simple time filter based on a 1D time window range
-	 * @author Boaz
+	/**
+	 * This class represents a simple loction filter based on a alt range
 	 *
 	 */
 public class altFilter implements filter{
@@ -18,9 +20,11 @@ public class altFilter implements filter{
 	public boolean test(Checks rec) {
 		boolean ans = false;
 		if(rec!=null) {
-			if(rec.getLat()>minAlt && rec.getLat()<=maxAlt) {
+
+			if(rec.getAlt()>minAlt && rec.getAlt()<=maxAlt) {
 				ans = true;
 				}
+			
 		}
 		return ans;
 	}
