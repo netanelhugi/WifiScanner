@@ -7,8 +7,17 @@ import java.util.LinkedList;
 
 import myObjects.Checks;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class main.
+ */
 public class main {
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		

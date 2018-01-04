@@ -129,6 +129,13 @@ public class MatrixSortByMAC {
 				return a;
 			}
 			
+			/**
+			 * Find mac.
+			 *
+			 * @param a the a
+			 * @param mac the mac
+			 * @return the linked list
+			 */
 			public static LinkedList<Wifi> findMac(LinkedList<Wifi> a, String mac){
 				LinkedList<Wifi> ans = new LinkedList<Wifi>();
 				for(int i=0; i<a.size(); i++){

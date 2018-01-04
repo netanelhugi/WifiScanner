@@ -97,6 +97,13 @@ public class toCSV {
 
 	}
 	
+	/**
+	 * To csv from list.
+	 *
+	 * @param a the a
+	 * @param dir the dir
+	 * @throws FileNotFoundException the file not found exception
+	 */
 	public void toCsvFromList(LinkedList<Checks> a, String dir) throws FileNotFoundException {
 
 		/**

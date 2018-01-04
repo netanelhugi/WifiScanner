@@ -85,47 +85,94 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class gui.
+ */
 public class gui extends Thread{
 
 	
 
+	/** The Constant OVERFLOW. */
 	protected static final Kind<?> OVERFLOW = null;
 
+	/** The frame. */
 	private JFrame frame;
 
+	/** The lc. */
 	LinkedList<Checks> lc = new LinkedList<>();
+	
+	/** The wifi. */
 	LinkedList<Wifi> wifi = new LinkedList<>();
 	
+	/** The folder. */
 	static String folder = "";
 
 
+	/** The time. */
 	timeFilter time;
+	
+	/** The id. */
 	IDfilter id;
+	
+	/** The lat 0. */
 	latFilter lat0;
+	
+	/** The lon 0. */
 	lonFilter lon0;
+	
+	/** The alt 0. */
 	altFilter alt0;
+	
+	/** The result. */
 	filter result;
 
+	/** The time load. */
 	timeFilter timeLoad;
+	
+	/** The id load. */
 	IDfilter idLoad;
+	
+	/** The lat load. */
 	latFilter latLoad;
+	
+	/** The lon load. */
 	lonFilter lonLoad;
+	
+	/** The alt load. */
 	altFilter altLoad;
 	
+	/** The timeload bool. */
 	boolean timeloadBool = false;
+	
+	/** The idload bool. */
 	boolean idloadBool = false;
+	
+	/** The latload bool. */
 	boolean latloadBool = false;
+	
+	/** The lonload bool. */
 	boolean lonloadBool = false;
+	
+	/** The altload bool. */
 	boolean altloadBool = false;
 
+	/** The filter type. */
 	String filterType = "";
+	
+	/** The Smin. */
 	String Smin = "";
+	
+	/** The Smax. */
 	String Smax = "";
 
+	/** The lines. */
 	int lines = lc.size();
 
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

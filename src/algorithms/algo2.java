@@ -262,6 +262,12 @@ public class algo2 {
 
 	}
 	
+	/**
+	 * Wifi sort sortby signal.
+	 *
+	 * @param c the c
+	 * @return the checks
+	 */
 	public static Checks wifiSort_SortbySignal(Checks c){
 		
 		int n = c.getWifiCount();
@@ -312,6 +318,12 @@ public class algo2 {
 	}
 	
 	
+	/**
+	 * Sort by signal.
+	 *
+	 * @param a the a
+	 * @return the linked list
+	 */
 	public static LinkedList<WifiSort> sortBySignal(LinkedList<WifiSort> a) {
 
 		Collections.sort(a, new Comparator<WifiSort>() {

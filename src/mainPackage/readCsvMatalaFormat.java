@@ -693,6 +693,12 @@ public class readCsvMatalaFormat {
 		return a;
 	}
 
+	/**
+	 * Checks to wifi.
+	 *
+	 * @param a the a
+	 * @return the linked list
+	 */
 	public static LinkedList<Wifi> checksToWifi(LinkedList<Checks> a) {
 
 		LinkedList<Wifi> wi = new LinkedList<>();
@@ -798,6 +804,12 @@ public class readCsvMatalaFormat {
 	}
 	
 	
+/**
+ * String to checks.
+ *
+ * @param s the s
+ * @return the checks
+ */
 public static Checks StringToChecks(String s) {
 		
 		int psik = 0;

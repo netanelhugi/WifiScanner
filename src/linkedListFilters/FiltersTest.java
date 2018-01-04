@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package linkedListFilters;
 
 import static org.junit.Assert.*;
@@ -5,9 +8,16 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import myObjects.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class FiltersTest.
+ */
 public class FiltersTest {
 	
 	
+	/**
+	 * Time test.
+	 */
 	@Test
 	public void TimeTest() {
 
@@ -25,6 +35,9 @@ public class FiltersTest {
 	}
 	
 	
+	/**
+	 * I dtest.
+	 */
 	@Test
 	public void IDtest() {
 
@@ -42,6 +55,9 @@ public class FiltersTest {
 	}
 	
 	
+	/**
+	 * Lat test.
+	 */
 	@Test
 	public void LatTest() {
 
@@ -58,6 +74,9 @@ public class FiltersTest {
 	
 	}
 	
+	/**
+	 * Lon test.
+	 */
 	@Test
 	public void LonTest() {
 
@@ -74,6 +93,9 @@ public class FiltersTest {
 	
 	}
 
+	/**
+	 * Alttest.
+	 */
 	@Test
 	public void Alttest() {
 

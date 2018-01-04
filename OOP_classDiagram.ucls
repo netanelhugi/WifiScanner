@@ -80,12 +80,12 @@
   </package>  
   <package id="10" language="java" name="myObjects" project="OOP-assignment" file="/OOP-assignment/src/myObjects" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="373" y="371"/>    
+    <position height="-1" width="-1" x="1421" y="710"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <class id="11" language="java" name="myObjects.Checks" project="OOP-assignment" 
     file="/OOP-assignment/src/myObjects/Checks.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="722" y="820"/>    
+    <position height="-1" width="-1" x="997" y="960"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -94,7 +94,7 @@
   </class>  
   <class id="12" language="java" name="myObjects.Wifi" project="OOP-assignment" 
     file="/OOP-assignment/src/myObjects/Wifi.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1167" y="712"/>    
+    <position height="-1" width="-1" x="1547" y="1131"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -103,8 +103,8 @@
   </class>  
   <class id="13" language="java" name="myObjects.WifiSort" project="OOP-assignment" 
     file="/OOP-assignment/src/myObjects/WifiSort.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="594" y="1506"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="340" width="335" x="1163" y="1630"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -112,12 +112,12 @@
   </class>  
   <package id="14" language="java" name="mainPackage" project="OOP-assignment" file="/OOP-assignment/src/mainPackage" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1048" y="1175"/>    
+    <position height="-1" width="-1" x="1976" y="1064"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <class id="15" language="java" name="mainPackage.main" project="OOP-assignment" 
     file="/OOP-assignment/src/mainPackage/main.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1051" y="1280"/>    
+    <position height="-1" width="-1" x="1985" y="1167"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -126,7 +126,7 @@
   </class>  
   <class id="16" language="java" name="mainPackage.WifiScanner" project="OOP-assignment" 
     file="/OOP-assignment/src/mainPackage/WifiScanner.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1309" y="1388"/>    
+    <position height="-1" width="-1" x="2256" y="1194"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -135,7 +135,7 @@
   </class>  
   <class id="17" language="java" name="mainPackage.readCsvMatalaFormat" project="OOP-assignment" 
     file="/OOP-assignment/src/mainPackage/readCsvMatalaFormat.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1667" y="1343"/>    
+    <position height="-1" width="-1" x="2614" y="1149"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -144,7 +144,7 @@
   </class>  
   <class id="18" language="java" name="mainPackage.readCsvMatalaFormatTest" project="OOP-assignment" 
     file="/OOP-assignment/src/mainPackage/readCsvMatalaFormatTest.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1978" y="1289"/>    
+    <position height="-1" width="-1" x="2925" y="1095"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -153,7 +153,7 @@
   </class>  
   <class id="19" language="java" name="mainPackage.MatrixSortByMAC" project="OOP-assignment" 
     file="/OOP-assignment/src/mainPackage/MatrixSortByMAC.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2280" y="1316"/>    
+    <position height="-1" width="-1" x="3227" y="1122"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -162,7 +162,7 @@
   </class>  
   <class id="20" language="java" name="mainPackage.MatrixSortByMacTest" project="OOP-assignment" 
     file="/OOP-assignment/src/mainPackage/MatrixSortByMacTest.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2566" y="1289"/>    
+    <position height="-1" width="-1" x="3513" y="1095"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -171,7 +171,7 @@
   </class>  
   <class id="21" language="java" name="mainPackage.WifiScannerTest" project="OOP-assignment" 
     file="/OOP-assignment/src/mainPackage/WifiScannerTest.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2783" y="1370"/>    
+    <position height="-1" width="-1" x="3730" y="1176"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -180,12 +180,12 @@
   </class>  
   <package id="22" language="java" name="algorithms" project="OOP-assignment" file="/OOP-assignment/src/algorithms" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="55" width="122" x="2068" y="150"/>    
+    <position height="-1" width="-1" x="2455" y="263"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <class id="23" language="java" name="algorithms.algo2" project="OOP-assignment" 
     file="/OOP-assignment/src/algorithms/algo2.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2266" y="322"/>    
+    <position height="-1" width="-1" x="2727" y="322"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -194,7 +194,7 @@
   </class>  
   <class id="24" language="java" name="algorithms.algo1" project="OOP-assignment" 
     file="/OOP-assignment/src/algorithms/algo1.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2660" y="322"/>    
+    <position height="-1" width="-1" x="3121" y="322"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -203,7 +203,7 @@
   </class>  
   <class id="25" language="java" name="algorithms.algo1Testing" project="OOP-assignment" 
     file="/OOP-assignment/src/algorithms/algo1Testing.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2959" y="295"/>    
+    <position height="-1" width="-1" x="3420" y="295"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -212,7 +212,7 @@
   </class>  
   <class id="26" language="java" name="algorithms.algo1Test" project="OOP-assignment" 
     file="/OOP-assignment/src/algorithms/algo1Test.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3164" y="286"/>    
+    <position height="-1" width="-1" x="3625" y="286"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -221,7 +221,7 @@
   </class>  
   <class id="27" language="java" name="algorithms.algo2Test" project="OOP-assignment" 
     file="/OOP-assignment/src/algorithms/algo2Test.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3319" y="286"/>    
+    <position height="-1" width="-1" x="3780" y="286"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -230,7 +230,7 @@
   </class>  
   <class id="28" language="java" name="algorithms.algo2Testing" project="OOP-assignment" 
     file="/OOP-assignment/src/algorithms/algo2Testing.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3533" y="295"/>    
+    <position height="-1" width="-1" x="3994" y="295"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -239,13 +239,13 @@
   </class>  
   <package id="29" language="java" name="exportFiles" project="OOP-assignment" file="/OOP-assignment/src/exportFiles" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2126" y="482"/>    
-    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+    <position height="121" width="122" x="2408" y="507"/>    
+    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <class id="30" language="java" name="exportFiles.toKML" project="OOP-assignment" 
     file="/OOP-assignment/src/exportFiles/toKML.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2230" y="619"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="208" width="340" x="2564" y="510"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -253,8 +253,8 @@
   </class>  
   <class id="31" language="java" name="exportFiles.toCSV" project="OOP-assignment" 
     file="/OOP-assignment/src/exportFiles/toCSV.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2590" y="619"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    <position height="208" width="300" x="2985" y="510"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -262,7 +262,7 @@
   </class>  
   <class id="32" language="java" name="GUI.gui" project="OOP-assignment" file="/OOP-assignment/src/GUI/gui.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1653" y="615"/>    
+    <position height="-1" width="-1" x="176" y="661"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -271,7 +271,7 @@
   </class>  
   <class id="33" language="java" name="GUI.counters" project="OOP-assignment" 
     file="/OOP-assignment/src/GUI/counters.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1865" y="579"/>    
+    <position height="-1" width="-1" x="193" y="996"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -280,7 +280,7 @@
   </class>  
   <package id="34" language="java" name="GUI" project="OOP-assignment" file="/OOP-assignment/src/GUI" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1816" y="476"/>    
+    <position height="-1" width="-1" x="178" y="883"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
   <association id="35">    
@@ -302,10 +302,10 @@
   <association id="41">    
     <end type="SOURCE" refId="11" navigable="false">      
       <attribute id="42" name="wifi1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </attribute>      
       <multiplicity id="43" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
@@ -314,10 +314,10 @@
   <association id="44">    
     <end type="SOURCE" refId="11" navigable="false">      
       <attribute id="45" name="wifi3">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </attribute>      
       <multiplicity id="46" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
@@ -346,10 +346,10 @@
   <association id="54">    
     <end type="SOURCE" refId="11" navigable="false">      
       <attribute id="55" name="wifi6">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </attribute>      
       <multiplicity id="56" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
@@ -370,10 +370,10 @@
   <association id="61">    
     <end type="SOURCE" refId="11" navigable="false">      
       <attribute id="62" name="wifi4">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </attribute>      
       <multiplicity id="63" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
@@ -418,10 +418,10 @@
   <association id="77">    
     <end type="SOURCE" refId="11" navigable="false">      
       <attribute id="78" name="wifi8">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </attribute>      
       <multiplicity id="79" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
@@ -438,10 +438,10 @@
   <association id="83">    
     <end type="SOURCE" refId="11" navigable="false">      
       <attribute id="84" name="wifi2">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </attribute>      
       <multiplicity id="85" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
@@ -450,10 +450,10 @@
   <association id="86">    
     <end type="SOURCE" refId="11" navigable="false">      
       <attribute id="87" name="wifi9">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </attribute>      
       <multiplicity id="88" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
@@ -470,10 +470,10 @@
   <association id="92">    
     <end type="SOURCE" refId="11" navigable="false">      
       <attribute id="93" name="wifi10">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </attribute>      
       <multiplicity id="94" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
@@ -482,10 +482,10 @@
   <association id="95">    
     <end type="SOURCE" refId="11" navigable="false">      
       <attribute id="96" name="wifi5">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </attribute>      
       <multiplicity id="97" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
@@ -514,10 +514,10 @@
   <association id="105">    
     <end type="SOURCE" refId="11" navigable="false">      
       <attribute id="106" name="wifi7">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </attribute>      
       <multiplicity id="107" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="0" width="0" x="810" y="294"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    

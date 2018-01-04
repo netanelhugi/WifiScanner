@@ -10,6 +10,7 @@ import algorithms.*;
 import GUI.*;
 import myObjects.*;
 
+// TODO: Auto-generated Javadoc
 /**
  * This interface represents a simple boolean filter
  * 
@@ -20,10 +21,12 @@ import myObjects.*;
  *
  */
 public interface filter extends Serializable{
+	
 	/**
-	 * test if the Record rec is pass the filter 
-	 * @param rec
-	 * @return true iff: the record pass the filter, else returns false 
+	 * test if the Record rec is pass the filter .
+	 *
+	 * @param rec the rec
+	 * @return true iff: the record pass the filter, else returns false
 	 */
 	public boolean test(Checks rec);
 }

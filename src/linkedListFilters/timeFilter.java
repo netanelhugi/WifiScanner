@@ -5,6 +5,7 @@ package linkedListFilters;
 
 import myObjects.*;
 
+// TODO: Auto-generated Javadoc
 /**
 	 * This class represents a simple time filter based on a 1D time window range
 	 * 
@@ -16,12 +17,21 @@ import myObjects.*;
 	 */
 public class timeFilter implements filter{
 	
+	/**
+	 * Instantiates a new time filter.
+	 *
+	 * @param start the start
+	 * @param end the end
+	 */
 	public timeFilter(String start, String end) {
 			_start = start;
 			_end = end;
 	}
 
 	
+	/* (non-Javadoc)
+	 * @see linkedListFilters.filter#test(myObjects.Checks)
+	 */
 	public boolean test(Checks rec) {
 		boolean ans = false;
 		if(rec!=null) {
@@ -40,10 +50,13 @@ public class timeFilter implements filter{
 		return ans;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString() {
 		return ""+this.getClass().getName()+" ["+this._start+","+this._end+"]";
 	}
 		
-	/********** Private data can be located anywhere *************/
+	/** ******** Private data can be located anywhere ************. */
 	private String _start, _end;
 }
