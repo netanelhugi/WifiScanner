@@ -83,6 +83,7 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_DELETE;
 import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import database.*;
 
 
 // TODO: Auto-generated Javadoc
@@ -221,12 +222,12 @@ public class gui extends Thread{
 		frame.getContentPane().setBackground(new Color(240, 240, 240));
 		frame.getContentPane().setForeground(Color.BLUE);
 		frame.setBounds(100, 100, 450, 300);
-		frame.setSize(900, 650);
+		frame.setSize(1000, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("wifi scanner system");
 
 		JTextPane txtpnLines = new JTextPane();
-		txtpnLines.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnLines.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnLines.setText("Lines:");
 		txtpnLines.setForeground(Color.BLUE);
 		txtpnLines.setBackground(SystemColor.menu);
@@ -234,26 +235,26 @@ public class gui extends Thread{
 		frame.getContentPane().add(txtpnLines);
 
 		JTextPane txtpnNetworks = new JTextPane();
-		txtpnNetworks.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnNetworks.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnNetworks.setText("Networks:");
 		txtpnNetworks.setForeground(Color.BLUE);
 		txtpnNetworks.setEditable(false);
 		txtpnNetworks.setBackground(SystemColor.menu);
-		txtpnNetworks.setBounds(0, 321, 68, 22);
+		txtpnNetworks.setBounds(0, 321, 94, 22);
 		frame.getContentPane().add(txtpnNetworks);
 
 		TextField textField_lines = new TextField();
 		textField_lines.setFont(new Font("Dialog", Font.BOLD, 12));
 		textField_lines.setEnabled(false);
 		textField_lines.setEditable(false);
-		textField_lines.setBounds(71, 292, 54, 21);
+		textField_lines.setBounds(100, 292, 54, 21);
 		frame.getContentPane().add(textField_lines);
 
 		TextField textField_networks = new TextField();
 		textField_networks.setFont(new Font("Dialog", Font.BOLD, 12));
 		textField_networks.setEnabled(false);
 		textField_networks.setEditable(false);
-		textField_networks.setBounds(71, 321, 54, 21);
+		textField_networks.setBounds(100, 322, 54, 21);
 		frame.getContentPane().add(textField_networks);
 
 		Button button = new Button("Choose folder");
@@ -578,13 +579,13 @@ public class gui extends Thread{
 		});
 
 		JRadioButton rdbtnTimeFilter = new JRadioButton("time filter");
-		rdbtnTimeFilter.setFont(new Font("Tahoma", Font.BOLD, 13));
+		rdbtnTimeFilter.setFont(new Font("Tahoma", Font.BOLD, 15));
 		rdbtnTimeFilter.setForeground(Color.BLUE);
 		JRadioButton rdbtnIDfilter = new JRadioButton("ID filter");
-		rdbtnIDfilter.setFont(new Font("Tahoma", Font.BOLD, 13));
+		rdbtnIDfilter.setFont(new Font("Tahoma", Font.BOLD, 15));
 		rdbtnIDfilter.setForeground(Color.BLUE);
 		JRadioButton rdbtLOCfilter = new JRadioButton("Loction filter by:");
-		rdbtLOCfilter.setFont(new Font("Tahoma", Font.BOLD, 13));
+		rdbtLOCfilter.setFont(new Font("Tahoma", Font.BOLD, 15));
 		rdbtLOCfilter.setForeground(Color.BLUE);
 
 		JComboBox comboBox = new JComboBox();
@@ -633,7 +634,7 @@ public class gui extends Thread{
 		frame.getContentPane().add(comboBox_2);
 
 		JTextPane txtpnMaxTime = new JTextPane();
-		txtpnMaxTime.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnMaxTime.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnMaxTime.setEditable(false);
 		txtpnMaxTime.setForeground(Color.BLUE);
 		txtpnMaxTime.setText("Max Time: ");
@@ -771,13 +772,14 @@ public class gui extends Thread{
 		frame.getContentPane().add(comboBox_11);
 
 		TextField textField_UserName = new TextField();
+		textField_UserName.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_UserName.setForeground(Color.BLUE);
 		textField_UserName.setEnabled(false);
-		textField_UserName.setBounds(242, 128, 77, 21);
+		textField_UserName.setBounds(242, 128, 251, 21);
 		frame.getContentPane().add(textField_UserName);
 
 		JTextPane txtpnMinTime = new JTextPane();
-		txtpnMinTime.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnMinTime.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnMinTime.setEditable(false);
 		txtpnMinTime.setForeground(Color.BLUE);
 		txtpnMinTime.setBackground(UIManager.getColor("Button.background"));
@@ -786,7 +788,7 @@ public class gui extends Thread{
 		frame.getContentPane().add(txtpnMinTime);
 
 		JTextPane txtpnUserName = new JTextPane();
-		txtpnUserName.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnUserName.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnUserName.setEditable(false);
 		txtpnUserName.setForeground(Color.BLUE);
 		txtpnUserName.setText("User name:");
@@ -795,93 +797,99 @@ public class gui extends Thread{
 		frame.getContentPane().add(txtpnUserName);
 
 		JTextPane txtpnMinLat = new JTextPane();
-		txtpnMinLat.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnMinLat.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnMinLat.setEditable(false);
 		txtpnMinLat.setForeground(Color.BLUE);
 		txtpnMinLat.setText("Min Lat: ");
 		txtpnMinLat.setBackground(SystemColor.menu);
-		txtpnMinLat.setBounds(160, 198, 63, 22);
+		txtpnMinLat.setBounds(160, 198, 70, 22);
 		frame.getContentPane().add(txtpnMinLat);
 
 		TextField textField_latMin = new TextField();
+		textField_latMin.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_latMin.setForeground(Color.BLUE);
 		textField_latMin.setEnabled(false);
-		textField_latMin.setBounds(230, 196, 77, 21);
+		textField_latMin.setBounds(235, 196, 77, 21);
 		frame.getContentPane().add(textField_latMin);
 
 		JTextPane txtpnMinLon = new JTextPane();
-		txtpnMinLon.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnMinLon.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnMinLon.setEditable(false);
 		txtpnMinLon.setForeground(Color.BLUE);
 		txtpnMinLon.setText("Min Lon:");
 		txtpnMinLon.setBackground(SystemColor.menu);
-		txtpnMinLon.setBounds(160, 226, 63, 22);
+		txtpnMinLon.setBounds(160, 226, 70, 22);
 		frame.getContentPane().add(txtpnMinLon);
 
 		JTextPane txtpnMinAlt = new JTextPane();
-		txtpnMinAlt.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnMinAlt.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnMinAlt.setEditable(false);
 		txtpnMinAlt.setForeground(Color.BLUE);
 		txtpnMinAlt.setText("Min Alt:");
 		txtpnMinAlt.setBackground(SystemColor.menu);
-		txtpnMinAlt.setBounds(160, 255, 57, 22);
+		txtpnMinAlt.setBounds(160, 255, 70, 22);
 		frame.getContentPane().add(txtpnMinAlt);
 
 		TextField textField_LonMin = new TextField();
+		textField_LonMin.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_LonMin.setForeground(Color.BLUE);
 		textField_LonMin.setEnabled(false);
-		textField_LonMin.setBounds(230, 223, 77, 21);
+		textField_LonMin.setBounds(235, 223, 77, 21);
 		frame.getContentPane().add(textField_LonMin);
 
 		TextField textField_AltMin = new TextField();
+		textField_AltMin.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_AltMin.setForeground(Color.BLUE);
 		textField_AltMin.setEnabled(false);
-		textField_AltMin.setBounds(230, 253, 77, 21);
+		textField_AltMin.setBounds(235, 253, 77, 21);
 		frame.getContentPane().add(textField_AltMin);
 
 		JTextPane txtpnMaxLat = new JTextPane();
-		txtpnMaxLat.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnMaxLat.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnMaxLat.setEditable(false);
 		txtpnMaxLat.setForeground(Color.BLUE);
 		txtpnMaxLat.setText("Max Lat:");
 		txtpnMaxLat.setBackground(SystemColor.menu);
-		txtpnMaxLat.setBounds(319, 195, 62, 22);
+		txtpnMaxLat.setBounds(338, 195, 72, 22);
 		frame.getContentPane().add(txtpnMaxLat);
 
 		TextField textField_latMax = new TextField();
+		textField_latMax.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_latMax.setForeground(Color.BLUE);
 		textField_latMax.setEnabled(false);
-		textField_latMax.setBounds(389, 196, 77, 21);
+		textField_latMax.setBounds(416, 196, 77, 21);
 		frame.getContentPane().add(textField_latMax);
 
 		JTextPane txtpnMaxLon = new JTextPane();
-		txtpnMaxLon.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnMaxLon.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnMaxLon.setEditable(false);
 		txtpnMaxLon.setForeground(Color.BLUE);
 		txtpnMaxLon.setText("Max Lon:");
 		txtpnMaxLon.setBackground(SystemColor.menu);
-		txtpnMaxLon.setBounds(319, 223, 63, 22);
+		txtpnMaxLon.setBounds(338, 223, 75, 22);
 		frame.getContentPane().add(txtpnMaxLon);
 
 		JTextPane txtpnMaxAlt = new JTextPane();
-		txtpnMaxAlt.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnMaxAlt.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnMaxAlt.setEditable(false);
 		txtpnMaxAlt.setForeground(Color.BLUE);
 		txtpnMaxAlt.setText("Max Alt:");
 		txtpnMaxAlt.setBackground(SystemColor.menu);
-		txtpnMaxAlt.setBounds(319, 252, 68, 22);
+		txtpnMaxAlt.setBounds(338, 252, 68, 22);
 		frame.getContentPane().add(txtpnMaxAlt);
 
 		TextField textField_LonMax = new TextField();
+		textField_LonMax.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_LonMax.setForeground(Color.BLUE);
 		textField_LonMax.setEnabled(false);
-		textField_LonMax.setBounds(389, 223, 77, 21);
+		textField_LonMax.setBounds(416, 223, 77, 21);
 		frame.getContentPane().add(textField_LonMax);
 
 		TextField textField_AltMax = new TextField();
+		textField_AltMax.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_AltMax.setForeground(Color.BLUE);
 		textField_AltMax.setEnabled(false);
-		textField_AltMax.setBounds(389, 253, 77, 21);
+		textField_AltMax.setBounds(416, 253, 77, 21);
 		frame.getContentPane().add(textField_AltMax);
 
 		JButton btnUnfilter = new JButton("Unfilter");
@@ -904,13 +912,13 @@ public class gui extends Thread{
 		frame.getContentPane().add(btnUnfilter);
 
 		JCheckBox chckbxLat = new JCheckBox("Lat");
-		chckbxLat.setFont(new Font("Tahoma", Font.BOLD, 13));
+		chckbxLat.setFont(new Font("Tahoma", Font.BOLD, 15));
 		chckbxLat.setForeground(Color.BLUE);
 		JCheckBox chckbxLon = new JCheckBox("Lon");
-		chckbxLon.setFont(new Font("Tahoma", Font.BOLD, 13));
+		chckbxLon.setFont(new Font("Tahoma", Font.BOLD, 15));
 		chckbxLon.setForeground(Color.BLUE);
 		JCheckBox checkbxAlt = new JCheckBox("Alt");
-		checkbxAlt.setFont(new Font("Tahoma", Font.BOLD, 13));
+		checkbxAlt.setFont(new Font("Tahoma", Font.BOLD, 15));
 		checkbxAlt.setForeground(Color.BLUE);
 
 		chckbxLat.addActionListener(new ActionListener() {
@@ -930,7 +938,7 @@ public class gui extends Thread{
 			}
 		});
 		chckbxLat.setEnabled(false);
-		chckbxLat.setBounds(328, 164, 49, 25);
+		chckbxLat.setBounds(328, 164, 57, 25);
 		frame.getContentPane().add(chckbxLat);
 
 		chckbxLon.addActionListener(new ActionListener() {
@@ -951,7 +959,7 @@ public class gui extends Thread{
 		});
 
 		chckbxLon.setEnabled(false);
-		chckbxLon.setBounds(375, 164, 51, 25);
+		chckbxLon.setBounds(385, 165, 63, 25);
 		frame.getContentPane().add(chckbxLon);
 
 		checkbxAlt.addActionListener(new ActionListener() {
@@ -972,7 +980,7 @@ public class gui extends Thread{
 		});
 
 		checkbxAlt.setEnabled(false);
-		checkbxAlt.setBounds(422, 164, 49, 25);
+		checkbxAlt.setBounds(444, 165, 49, 25);
 		frame.getContentPane().add(checkbxAlt);
 
 		JCheckBox CheckBoxMinTime = new JCheckBox("");
@@ -1137,13 +1145,14 @@ public class gui extends Thread{
 			}
 		});
 
-		rdbtLOCfilter.setBounds(160, 164, 143, 25);
+		rdbtLOCfilter.setBounds(160, 164, 155, 25);
 		frame.getContentPane().add(rdbtLOCfilter);
 		
 		TextField textField_corFilter = new TextField();
+		textField_corFilter.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_corFilter.setEnabled(false);
 		textField_corFilter.setEditable(false);
-		textField_corFilter.setBounds(113, 381, 353, 21);
+		textField_corFilter.setBounds(140, 380, 353, 21);
 		frame.getContentPane().add(textField_corFilter);
 
 		///////////////////////// sumbit filters////////////////////
@@ -1533,9 +1542,10 @@ public class gui extends Thread{
 		frame.getContentPane().add(btnSumbitFilter);
 
 		TextField textField_loadFilter = new TextField();
+		textField_loadFilter.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_loadFilter.setEditable(false);
 		textField_loadFilter.setEnabled(false);
-		textField_loadFilter.setBounds(113, 405, 353, 21);
+		textField_loadFilter.setBounds(140, 407, 353, 21);
 		frame.getContentPane().add(textField_loadFilter);
 
 		JButton btnSendToFile = new JButton("load filter");
@@ -1819,103 +1829,104 @@ public class gui extends Thread{
 		frame.getContentPane().add(btnNewButton);
 
 		TextField textField_1 = new TextField();
-		textField_1.setBounds(641, 164, 108, 21);
+		textField_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		textField_1.setBounds(819, 39, 153, 21);
 		frame.getContentPane().add(textField_1);
 
 		JTextPane txtpnMac = new JTextPane();
-		txtpnMac.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnMac.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnMac.setForeground(Color.BLUE);
 		txtpnMac.setEditable(false);
 		txtpnMac.setText("Enter MAC address:");
 		txtpnMac.setBackground(SystemColor.menu);
-		txtpnMac.setBounds(510, 164, 125, 22);
+		txtpnMac.setBounds(688, 39, 125, 22);
 		frame.getContentPane().add(txtpnMac);
 
 		JTextPane txtpnMac_1 = new JTextPane();
-		txtpnMac_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnMac_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnMac_1.setEditable(false);
 		txtpnMac_1.setForeground(Color.BLUE);
 		txtpnMac_1.setText("mac 1:");
 		txtpnMac_1.setBackground(SystemColor.menu);
-		txtpnMac_1.setBounds(510, 346, 49, 22);
+		txtpnMac_1.setBounds(539, 220, 57, 22);
 		frame.getContentPane().add(txtpnMac_1);
 
 		TextField textField_algo2_mac1 = new TextField();
 		textField_algo2_mac1.setEnabled(false);
-		textField_algo2_mac1.setBounds(565, 346, 108, 21);
+		textField_algo2_mac1.setBounds(594, 220, 148, 21);
 		frame.getContentPane().add(textField_algo2_mac1);
 
 		JTextPane txtpnMac_2 = new JTextPane();
-		txtpnMac_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnMac_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnMac_2.setForeground(Color.BLUE);
 		txtpnMac_2.setEditable(false);
 		txtpnMac_2.setText("mac 2:");
 		txtpnMac_2.setBackground(SystemColor.menu);
-		txtpnMac_2.setBounds(510, 374, 57, 22);
+		txtpnMac_2.setBounds(539, 248, 57, 22);
 		frame.getContentPane().add(txtpnMac_2);
 
 		JTextPane txtpnMac_3 = new JTextPane();
-		txtpnMac_3.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnMac_3.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnMac_3.setForeground(Color.BLUE);
 		txtpnMac_3.setEditable(false);
 		txtpnMac_3.setText("mac 3:");
 		txtpnMac_3.setBackground(SystemColor.menu);
-		txtpnMac_3.setBounds(510, 403, 57, 22);
+		txtpnMac_3.setBounds(539, 277, 57, 22);
 		frame.getContentPane().add(txtpnMac_3);
 
 		TextField textField_algo2_mac2 = new TextField();
 		textField_algo2_mac2.setEnabled(false);
-		textField_algo2_mac2.setBounds(565, 374, 108, 21);
+		textField_algo2_mac2.setBounds(594, 248, 148, 21);
 		frame.getContentPane().add(textField_algo2_mac2);
 
 		TextField textField_algo2_mac3 = new TextField();
 		textField_algo2_mac3.setEnabled(false);
-		textField_algo2_mac3.setBounds(565, 403, 108, 21);
+		textField_algo2_mac3.setBounds(594, 277, 148, 21);
 		frame.getContentPane().add(textField_algo2_mac3);
 
 		JTextPane txtpnSig = new JTextPane();
-		txtpnSig.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnSig.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnSig.setForeground(Color.BLUE);
 		txtpnSig.setEditable(false);
 		txtpnSig.setText("sig 1:");
 		txtpnSig.setBackground(SystemColor.menu);
-		txtpnSig.setBounds(687, 346, 45, 22);
+		txtpnSig.setBounds(764, 221, 50, 22);
 		frame.getContentPane().add(txtpnSig);
 
 		TextField textField_algo2_sig1 = new TextField();
 		textField_algo2_sig1.setEnabled(false);
-		textField_algo2_sig1.setBounds(738, 346, 108, 21);
+		textField_algo2_sig1.setBounds(824, 221, 148, 21);
 		frame.getContentPane().add(textField_algo2_sig1);
 
 		JTextPane txtpnSig_1 = new JTextPane();
-		txtpnSig_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnSig_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnSig_1.setForeground(Color.BLUE);
 		txtpnSig_1.setEditable(false);
 		txtpnSig_1.setText("sig 2:");
 		txtpnSig_1.setBackground(SystemColor.menu);
-		txtpnSig_1.setBounds(687, 374, 45, 22);
+		txtpnSig_1.setBounds(764, 249, 50, 22);
 		frame.getContentPane().add(txtpnSig_1);
 
 		JTextPane txtpnSig_2 = new JTextPane();
-		txtpnSig_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnSig_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnSig_2.setForeground(Color.BLUE);
 		txtpnSig_2.setEditable(false);
 		txtpnSig_2.setText("sig 3:");
 		txtpnSig_2.setBackground(SystemColor.menu);
-		txtpnSig_2.setBounds(687, 400, 49, 22);
+		txtpnSig_2.setBounds(764, 277, 49, 22);
 		frame.getContentPane().add(txtpnSig_2);
 
 		TextField textField_algo2_sig2 = new TextField();
 		textField_algo2_sig2.setEnabled(false);
-		textField_algo2_sig2.setBounds(738, 374, 108, 21);
+		textField_algo2_sig2.setBounds(824, 249, 148, 21);
 		frame.getContentPane().add(textField_algo2_sig2);
 
 		TextField textField_algo2_sig3 = new TextField();
 		textField_algo2_sig3.setEnabled(false);
-		textField_algo2_sig3.setBounds(738, 403, 108, 21);
+		textField_algo2_sig3.setBounds(824, 278, 148, 21);
 		frame.getContentPane().add(textField_algo2_sig3);
 		JRadioButton radioButton_algo2B = new JRadioButton("Enter string:");
-		radioButton_algo2B.setFont(new Font("Tahoma", Font.BOLD, 13));
+		radioButton_algo2B.setFont(new Font("Tahoma", Font.BOLD, 15));
 		radioButton_algo2B.setForeground(Color.BLUE);
 		TextField textField_algo2bInput = new TextField();
 
@@ -1935,7 +1946,7 @@ public class gui extends Thread{
 			}
 		});
 		radioButton_algo2A.setForeground(Color.BLUE);
-		radioButton_algo2A.setBounds(510, 321, 31, 25);
+		radioButton_algo2A.setBounds(539, 195, 31, 25);
 		frame.getContentPane().add(radioButton_algo2A);
 
 		radioButton_algo2B.addActionListener(new ActionListener() {
@@ -1952,32 +1963,32 @@ public class gui extends Thread{
 
 			}
 		});
-		radioButton_algo2B.setBounds(510, 434, 110, 21);
+		radioButton_algo2B.setBounds(539, 323, 155, 21);
 		frame.getContentPane().add(radioButton_algo2B);
 
 		textField_algo2bInput.setEnabled(false);
-		textField_algo2bInput.setBounds(510, 469, 336, 21);
+		textField_algo2bInput.setBounds(539, 358, 433, 21);
 		frame.getContentPane().add(textField_algo2bInput);
 
 		TextField textField_algo1lon = new TextField();
-		textField_algo1lon.setFont(new Font("Dialog", Font.BOLD, 12));
+		textField_algo1lon.setFont(new Font("Dialog", Font.BOLD, 16));
 		textField_algo1lon.setEnabled(false);
 		textField_algo1lon.setEditable(false);
-		textField_algo1lon.setBounds(641, 227, 108, 21);
+		textField_algo1lon.setBounds(819, 102, 153, 21);
 		frame.getContentPane().add(textField_algo1lon);
 
 		TextField textField_algo1alt = new TextField();
-		textField_algo1alt.setFont(new Font("Dialog", Font.BOLD, 12));
+		textField_algo1alt.setFont(new Font("Dialog", Font.BOLD, 16));
 		textField_algo1alt.setEnabled(false);
 		textField_algo1alt.setEditable(false);
-		textField_algo1alt.setBounds(641, 255, 108, 21);
+		textField_algo1alt.setBounds(819, 130, 153, 21);
 		frame.getContentPane().add(textField_algo1alt);
 
 		TextField textField_algo1lat = new TextField();
-		textField_algo1lat.setFont(new Font("Dialog", Font.BOLD, 12));
+		textField_algo1lat.setFont(new Font("Dialog", Font.BOLD, 16));
 		textField_algo1lat.setEditable(false);
 		textField_algo1lat.setEnabled(false);
-		textField_algo1lat.setBounds(641, 198, 108, 21);
+		textField_algo1lat.setBounds(819, 73, 153, 21);
 		frame.getContentPane().add(textField_algo1lat);
 
 		JButton btnSubmit = new JButton("find loction");
@@ -2005,28 +2016,28 @@ public class gui extends Thread{
 
 			}
 		});
-		btnSubmit.setBounds(510, 198, 108, 78);
+		btnSubmit.setBounds(688, 73, 108, 78);
 		frame.getContentPane().add(btnSubmit);
 
 		TextField textField_algo2lat = new TextField();
 		textField_algo2lat.setFont(new Font("Dialog", Font.BOLD, 12));
 		textField_algo2lat.setEnabled(false);
 		textField_algo2lat.setEditable(false);
-		textField_algo2lat.setBounds(641, 508, 108, 21);
+		textField_algo2lat.setBounds(673, 397, 155, 21);
 		frame.getContentPane().add(textField_algo2lat);
 
 		TextField textField_algo2lon = new TextField();
 		textField_algo2lon.setFont(new Font("Dialog", Font.BOLD, 12));
 		textField_algo2lon.setEnabled(false);
 		textField_algo2lon.setEditable(false);
-		textField_algo2lon.setBounds(641, 537, 108, 21);
+		textField_algo2lon.setBounds(673, 426, 155, 21);
 		frame.getContentPane().add(textField_algo2lon);
 
 		TextField textField_algo2alt = new TextField();
 		textField_algo2alt.setFont(new Font("Dialog", Font.BOLD, 12));
 		textField_algo2alt.setEnabled(false);
 		textField_algo2alt.setEditable(false);
-		textField_algo2alt.setBounds(641, 565, 108, 21);
+		textField_algo2alt.setBounds(673, 454, 155, 21);
 		frame.getContentPane().add(textField_algo2alt);
 
 		JButton btnSubmitAkgo = new JButton("Find loction");
@@ -2141,24 +2152,24 @@ public class gui extends Thread{
 
 			}
 		});
-		btnSubmitAkgo.setBounds(510, 508, 108, 78);
+		btnSubmitAkgo.setBounds(539, 397, 108, 78);
 		frame.getContentPane().add(btnSubmitAkgo);
 
 		JTextPane algo2text = new JTextPane();
-		algo2text.setFont(new Font("Tahoma", Font.BOLD, 13));
+		algo2text.setFont(new Font("Tahoma", Font.BOLD, 15));
 		algo2text.setText("Algorithm 2:");
 		algo2text.setForeground(Color.BLUE);
 		algo2text.setBackground(SystemColor.menu);
-		algo2text.setBounds(510, 290, 89, 22);
+		algo2text.setBounds(539, 164, 125, 22);
 		frame.getContentPane().add(algo2text);
 
 		JTextPane txtpnAlgo = new JTextPane();
-		txtpnAlgo.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnAlgo.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnAlgo.setEditable(false);
 		txtpnAlgo.setText("Algorithm 1:");
 		txtpnAlgo.setForeground(Color.BLUE);
 		txtpnAlgo.setBackground(SystemColor.menu);
-		txtpnAlgo.setBounds(510, 127, 89, 22);
+		txtpnAlgo.setBounds(688, 9, 108, 22);
 		frame.getContentPane().add(txtpnAlgo);
 
 		JList list = new JList();
@@ -2514,7 +2525,7 @@ public class gui extends Thread{
 		JTextPane txtpnCurrectFilter = new JTextPane();
 		txtpnCurrectFilter.setText("Currect filter:");
 		txtpnCurrectFilter.setForeground(Color.BLUE);
-		txtpnCurrectFilter.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnCurrectFilter.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnCurrectFilter.setBackground(SystemColor.menu);
 		txtpnCurrectFilter.setBounds(0, 381, 117, 22);
 		frame.getContentPane().add(txtpnCurrectFilter);
@@ -2522,10 +2533,198 @@ public class gui extends Thread{
 		JTextPane txtpnImprotedFilter = new JTextPane();
 		txtpnImprotedFilter.setText("Improted filter:");
 		txtpnImprotedFilter.setForeground(Color.BLUE);
-		txtpnImprotedFilter.setFont(new Font("Tahoma", Font.BOLD, 13));
+		txtpnImprotedFilter.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnImprotedFilter.setBackground(SystemColor.menu);
-		txtpnImprotedFilter.setBounds(0, 405, 117, 22);
+		txtpnImprotedFilter.setBounds(0, 405, 134, 22);
 		frame.getContentPane().add(txtpnImprotedFilter);
+		
+		JTextPane txtpnIp = new JTextPane();
+		txtpnIp.setText("IP:");
+		txtpnIp.setForeground(Color.BLUE);
+		txtpnIp.setFont(new Font("Tahoma", Font.BOLD, 15));
+		txtpnIp.setEditable(false);
+		txtpnIp.setBackground(SystemColor.menu);
+		txtpnIp.setBounds(12, 542, 57, 22);
+		frame.getContentPane().add(txtpnIp);
+		
+		TextField textField_IP = new TextField();
+		textField_IP.setBounds(126, 543, 148, 21);
+		frame.getContentPane().add(textField_IP);
+		
+		JTextPane txtpnUser = new JTextPane();
+		txtpnUser.setText("USER:");
+		txtpnUser.setForeground(Color.BLUE);
+		txtpnUser.setFont(new Font("Tahoma", Font.BOLD, 15));
+		txtpnUser.setEditable(false);
+		txtpnUser.setBackground(SystemColor.menu);
+		txtpnUser.setBounds(12, 570, 57, 22);
+		frame.getContentPane().add(txtpnUser);
+		
+		JTextPane txtpnPassword = new JTextPane();
+		txtpnPassword.setText("PASSWORD:");
+		txtpnPassword.setForeground(Color.BLUE);
+		txtpnPassword.setFont(new Font("Tahoma", Font.BOLD, 15));
+		txtpnPassword.setEditable(false);
+		txtpnPassword.setBackground(SystemColor.menu);
+		txtpnPassword.setBounds(12, 599, 100, 22);
+		frame.getContentPane().add(txtpnPassword);
+		
+		TextField textField_USER = new TextField();
+		textField_USER.setBounds(126, 571, 148, 21);
+		frame.getContentPane().add(textField_USER);
+		
+		TextField textField_PASS = new TextField();
+		textField_PASS.setBounds(126, 600, 148, 21);
+		frame.getContentPane().add(textField_PASS);
+		
+		JTextPane txtpnTable = new JTextPane();
+		txtpnTable.setText("TABLE:");
+		txtpnTable.setForeground(Color.BLUE);
+		txtpnTable.setFont(new Font("Tahoma", Font.BOLD, 15));
+		txtpnTable.setEditable(false);
+		txtpnTable.setBackground(SystemColor.menu);
+		txtpnTable.setBounds(12, 682, 100, 22);
+		frame.getContentPane().add(txtpnTable);
+		
+		JTextPane txtpnDatabase_1 = new JTextPane();
+		txtpnDatabase_1.setText("DATABASE:");
+		txtpnDatabase_1.setForeground(Color.BLUE);
+		txtpnDatabase_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		txtpnDatabase_1.setEditable(false);
+		txtpnDatabase_1.setBackground(SystemColor.menu);
+		txtpnDatabase_1.setBounds(12, 653, 100, 22);
+		frame.getContentPane().add(txtpnDatabase_1);
+		
+		JTextPane txtpnDatabase = new JTextPane();
+		txtpnDatabase.setText("PORT:");
+		txtpnDatabase.setForeground(Color.BLUE);
+		txtpnDatabase.setFont(new Font("Tahoma", Font.BOLD, 15));
+		txtpnDatabase.setEditable(false);
+		txtpnDatabase.setBackground(SystemColor.menu);
+		txtpnDatabase.setBounds(12, 625, 100, 22);
+		frame.getContentPane().add(txtpnDatabase);
+		
+		TextField textField_PORT = new TextField();
+		textField_PORT.setBounds(126, 626, 148, 21);
+		frame.getContentPane().add(textField_PORT);
+		
+		TextField textField_DB = new TextField();
+		textField_DB.setBounds(126, 654, 148, 21);
+		frame.getContentPane().add(textField_DB);
+		
+		TextField textField_TABLE = new TextField();
+		textField_TABLE.setBounds(126, 683, 148, 21);
+		frame.getContentPane().add(textField_TABLE);
+		
+		JButton btnConnectToDb = new JButton("GET DATA FROM SQL");
+		btnConnectToDb.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				boolean empty = false;
+				
+				String ip = null;
+				String user = null;
+				String pass = null;
+				int port = 0;
+				String db = null;
+				String table = null;
+				
+				mySQL ms = new mySQL();
+				LinkedList<Checks> fromSQL = new LinkedList<>();
+				
+				try{
+					if(textField_IP.getText().isEmpty()){
+						textField_IP.setBackground(new Color(255, 0, 0));
+						empty = true;
+					}
+					else{
+						ip = textField_IP.getText();
+					}
+										
+					if(textField_USER.getText().isEmpty()){
+						textField_USER.setBackground(new Color(255, 0, 0));
+						empty = true;
+					}
+					else{
+						user = textField_USER.getText();
+					}
+										
+					if(textField_PASS.getText().isEmpty()){
+						textField_PASS.setBackground(new Color(255, 0, 0));
+						empty = true;
+					}
+					else{
+						pass = textField_PASS.getText();
+					}
+					
+					if(textField_PORT.getText().isEmpty()){
+						textField_PORT.setBackground(new Color(255, 0, 0));
+						empty = true;
+					}
+					else{
+						port = Integer.parseInt(textField_PORT.getText());
+					}
+
+					if(textField_DB.getText().isEmpty()){
+						textField_DB.setBackground(new Color(255, 0, 0));
+						empty = true;
+					}
+					else{
+						db = textField_DB.getText();
+					}
+
+					if(textField_TABLE.getText().isEmpty()){
+						textField_TABLE.setBackground(new Color(255, 0, 0));
+						empty = true;
+					}
+					else{
+						table = textField_TABLE.getText();
+					}
+					
+					
+					
+					
+				}
+				catch (Exception e) {
+					// TODO: handle exception
+				}
+				
+				if(!empty){
+					try{
+						fromSQL = ms.sqlConnectGui(ip, user, pass, port, db, table);
+						if(fromSQL==null){
+							JOptionPane.showMessageDialog(frame, "Error, please check your connection details");
+						}
+						
+						lc.addAll(fromSQL);
+						
+						LinkedList<Wifi> update = readCsvMatalaFormat.checksToWifi(lc);
+						wifi.clear();
+						wifi.addAll(update);
+
+						textField_lines.setText(Integer.toString(lc.size()));
+						textField_networks.setText(Integer.toString(wifi.size()));
+						
+					}
+					catch (Exception CommunicationsException) {
+						JOptionPane.showMessageDialog(frame, "Error, please check your connection details");
+						}
+				}
+				else{
+					JOptionPane.showMessageDialog(frame, "Missing fields!");
+				}
+				
+				
+				
+				
+				
+				
+				
+			}
+		});
+		btnConnectToDb.setForeground(Color.BLUE);
+		btnConnectToDb.setBounds(12, 710, 262, 41);
+		frame.getContentPane().add(btnConnectToDb);
 
 	}
 }
