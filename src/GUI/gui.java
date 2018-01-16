@@ -84,6 +84,8 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import database.*;
+import javax.swing.DropMode;
+import javax.swing.JTable;
 
 
 // TODO: Auto-generated Javadoc
@@ -225,6 +227,10 @@ public class gui extends Thread{
 		frame.setSize(1000, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("wifi scanner system");
+		
+		TextArea textArea = new TextArea();
+		textArea.setBounds(416, 543, 380, 150);
+		frame.getContentPane().add(textArea);
 
 		JTextPane txtpnLines = new JTextPane();
 		txtpnLines.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -300,10 +306,19 @@ public class gui extends Thread{
 						LinkedList<Wifi> wifiFromFolder = rc.checksToWifi(lc);
 						wifi.addAll(wifiFromFolder);
 
-						System.out.println(lc.size());
+						//System.out.println(lc.size());
 
 						textField_lines.setText(Integer.toString(lc.size()));
 						textField_networks.setText(Integer.toString(wifi.size()));
+						
+						textArea.setRows(wifi.size());
+					
+						
+						for(int i=0; i<wifi.size(); i++){
+							
+							textArea.setText(wifi.get(i).toString());
+						}
+						
 						
 				            new Thread() {
 				                @Override
@@ -375,6 +390,8 @@ public class gui extends Thread{
 
 					        						textField_lines.setText(Integer.toString(lc.size()));
 					        						textField_networks.setText(Integer.toString(wifi.size()));
+					        						
+					        						
 					            					
 				            						
 				            					} 

@@ -132,7 +132,7 @@ public class Wifi {
 	public String toString() {
 		return "Wifi [Mac=" + Mac + ", time=" + time + ", ssid=" + ssid + ", channel=" + channel + ", signal=" + signal
 				+ ", lat=" + lat + ", lon=" + lon + ", alt=" + alt + ", user=" + user + ", bool=" + bool + ", wdiff="
-				+ wdiff + "]";
+				+ wdiff + "]" + "\n";
 	}
 
 	/**
