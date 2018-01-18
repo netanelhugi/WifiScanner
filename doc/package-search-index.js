@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"algorithms"},{"l":"exportFiles"},{"l":"GUI"},{"l":"linkedListFilters"},{"l":"mainPackage"},{"l":"myObjects"},{"l":"UnusedFilters"}]
+packageSearchIndex = [{"l":"algorithms"},{"l":"database"},{"l":"exportFiles"},{"l":"GUI"},{"l":"linkedListFilters"},{"l":"mainPackage"},{"l":"myObjects"}]

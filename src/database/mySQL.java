@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package database;
 
 import java.sql.PreparedStatement;
@@ -17,20 +20,55 @@ import mainPackage.*;
 import myObjects.*;
 import java.sql.Statement;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class mySQL.
+ */
 public class mySQL {
 
+	/** The ip. */
 	private static String _ip = "5.29.193.52";
+	
+	/** The url. */
 	private static String _url = "jdbc:mysql://" + _ip + ":3306/oop_course_ariel";
+	
+	/** The user. */
 	private static String _user = "oop1";
+	
+	/** The password. */
 	private static String _password = "Lambda1();";
+	
+	/** The con. */
 	private static Connection _con = null;
 	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		
     	sqlConnectGui("5.29.193.52", "oop1", "Lambda1();", 3306,"oop_course_ariel","ex4_db");
     }
 	
+	/**
+	 * Sql connect gui.
+	 *
+	 * @param ip the ip
+	 * @param user the user
+	 * @param pass the pass
+	 * @param port the port
+	 * @param db the db
+	 * @param table the table
+	 * @return the linked list
+	 */
 	public static LinkedList<Checks> sqlConnectGui(String ip,String user,String pass, int port, String db, String table) {
+		
+	/**
+	 * connect to mySQL
+	 * take from: https://github.com/benmoshe/OOP_Exe/blob/master/src/db/MySQL_101.java
+	 * 
+	 */
         Statement st = null;
         ResultSet rs = null;
         int max_id = -1;

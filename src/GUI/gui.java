@@ -52,7 +52,6 @@ import java.awt.Color;
 import javax.swing.JTextArea;
 import com.sun.xml.bind.v2.model.core.WildcardTypeInfo;
 
-import UnusedFilters.*;
 
 import javax.swing.JPasswordField;
 import javax.swing.JProgressBar;
@@ -227,12 +226,8 @@ public class gui extends Thread{
 		frame.setSize(1000, 850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("wifi scanner system");
-		
-		TextArea textArea = new TextArea();
-		textArea.setBounds(416, 543, 380, 150);
-		frame.getContentPane().add(textArea);
 
-		JTextPane txtpnLines = new JTextPane();
+		final JTextPane txtpnLines = new JTextPane();
 		txtpnLines.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnLines.setText("Lines:");
 		txtpnLines.setForeground(Color.BLUE);
@@ -240,7 +235,7 @@ public class gui extends Thread{
 		txtpnLines.setBounds(0, 292, 57, 22);
 		frame.getContentPane().add(txtpnLines);
 
-		JTextPane txtpnNetworks = new JTextPane();
+		final JTextPane txtpnNetworks = new JTextPane();
 		txtpnNetworks.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txtpnNetworks.setText("Networks:");
 		txtpnNetworks.setForeground(Color.BLUE);
@@ -249,21 +244,21 @@ public class gui extends Thread{
 		txtpnNetworks.setBounds(0, 321, 94, 22);
 		frame.getContentPane().add(txtpnNetworks);
 
-		TextField textField_lines = new TextField();
+		final TextField textField_lines = new TextField();
 		textField_lines.setFont(new Font("Dialog", Font.BOLD, 12));
 		textField_lines.setEnabled(false);
 		textField_lines.setEditable(false);
 		textField_lines.setBounds(100, 292, 54, 21);
 		frame.getContentPane().add(textField_lines);
 
-		TextField textField_networks = new TextField();
+		final TextField textField_networks = new TextField();
 		textField_networks.setFont(new Font("Dialog", Font.BOLD, 12));
 		textField_networks.setEnabled(false);
 		textField_networks.setEditable(false);
 		textField_networks.setBounds(100, 322, 54, 21);
 		frame.getContentPane().add(textField_networks);
 
-		Button button = new Button("Choose folder");
+		final Button button = new Button("Choose folder");
 		button.setBounds(0, 0, 125, 52);
 		button.setBackground(Color.WHITE);
 		button.addActionListener(new ActionListener() {
@@ -286,8 +281,8 @@ public class gui extends Thread{
 					System.out.println("No Selection ");
 				}
 
-				WifiScanner ws = new WifiScanner();
-				readCsvMatalaFormat rc = new readCsvMatalaFormat();
+				final WifiScanner ws = new WifiScanner();
+				final readCsvMatalaFormat rc = new readCsvMatalaFormat();
 				try {
 
 					if (folder != "") {
@@ -311,13 +306,6 @@ public class gui extends Thread{
 						textField_lines.setText(Integer.toString(lc.size()));
 						textField_networks.setText(Integer.toString(wifi.size()));
 						
-						textArea.setRows(wifi.size());
-					
-						
-						for(int i=0; i<wifi.size(); i++){
-							
-							textArea.setText(wifi.get(i).toString());
-						}
 						
 						
 				            new Thread() {
@@ -595,17 +583,17 @@ public class gui extends Thread{
 			}
 		});
 
-		JRadioButton rdbtnTimeFilter = new JRadioButton("time filter");
+		final JRadioButton rdbtnTimeFilter = new JRadioButton("time filter");
 		rdbtnTimeFilter.setFont(new Font("Tahoma", Font.BOLD, 15));
 		rdbtnTimeFilter.setForeground(Color.BLUE);
-		JRadioButton rdbtnIDfilter = new JRadioButton("ID filter");
+		final JRadioButton rdbtnIDfilter = new JRadioButton("ID filter");
 		rdbtnIDfilter.setFont(new Font("Tahoma", Font.BOLD, 15));
 		rdbtnIDfilter.setForeground(Color.BLUE);
-		JRadioButton rdbtLOCfilter = new JRadioButton("Loction filter by:");
+		final JRadioButton rdbtLOCfilter = new JRadioButton("Loction filter by:");
 		rdbtLOCfilter.setFont(new Font("Tahoma", Font.BOLD, 15));
 		rdbtLOCfilter.setForeground(Color.BLUE);
 
-		JComboBox comboBox = new JComboBox();
+		final JComboBox comboBox = new JComboBox();
 		comboBox.setForeground(Color.BLUE);
 		comboBox.setEnabled(false);
 		comboBox.setToolTipText("Hour");
@@ -620,7 +608,7 @@ public class gui extends Thread{
 		comboBox.setBounds(262, 39, 57, 22);
 		frame.getContentPane().add(comboBox);
 
-		JComboBox comboBox_1 = new JComboBox();
+		final JComboBox comboBox_1 = new JComboBox();
 		comboBox_1.setForeground(Color.BLUE);
 		comboBox_1.setEnabled(false);
 		comboBox_1.setToolTipText("Min");
@@ -635,7 +623,7 @@ public class gui extends Thread{
 		comboBox_1.setBounds(328, 39, 57, 22);
 		frame.getContentPane().add(comboBox_1);
 
-		JComboBox comboBox_2 = new JComboBox();
+		final JComboBox comboBox_2 = new JComboBox();
 		comboBox_2.setForeground(Color.BLUE);
 		comboBox_2.setEnabled(false);
 		comboBox_2.setToolTipText("Sec");
@@ -659,7 +647,7 @@ public class gui extends Thread{
 		txtpnMaxTime.setBounds(182, 69, 77, 22);
 		frame.getContentPane().add(txtpnMaxTime);
 
-		JComboBox comboBox_3 = new JComboBox();
+		final JComboBox comboBox_3 = new JComboBox();
 		comboBox_3.setForeground(Color.BLUE);
 		comboBox_3.setEnabled(false);
 		comboBox_3.setToolTipText("Hour");
@@ -674,7 +662,7 @@ public class gui extends Thread{
 		comboBox_3.setBounds(262, 69, 57, 22);
 		frame.getContentPane().add(comboBox_3);
 
-		JComboBox comboBox_4 = new JComboBox();
+		final JComboBox comboBox_4 = new JComboBox();
 		comboBox_4.setForeground(Color.BLUE);
 		comboBox_4.setEnabled(false);
 		comboBox_4.setToolTipText("Min");
@@ -689,7 +677,7 @@ public class gui extends Thread{
 		comboBox_4.setBounds(328, 69, 57, 22);
 		frame.getContentPane().add(comboBox_4);
 
-		JComboBox comboBox_5 = new JComboBox();
+		final JComboBox comboBox_5 = new JComboBox();
 		comboBox_5.setForeground(Color.BLUE);
 		comboBox_5.setEnabled(false);
 		comboBox_5.setToolTipText("Sec");
@@ -704,7 +692,7 @@ public class gui extends Thread{
 		comboBox_5.setBounds(391, 69, 57, 22);
 		frame.getContentPane().add(comboBox_5);
 
-		JComboBox comboBox_6 = new JComboBox();
+		final JComboBox comboBox_6 = new JComboBox();
 		comboBox_6.setForeground(Color.BLUE);
 		comboBox_6.setToolTipText("Day");
 		comboBox_6.setEnabled(false);
@@ -718,7 +706,7 @@ public class gui extends Thread{
 		comboBox_6.setBounds(476, 39, 57, 22);
 		frame.getContentPane().add(comboBox_6);
 
-		JComboBox comboBox_7 = new JComboBox();
+		final JComboBox comboBox_7 = new JComboBox();
 		comboBox_7.setForeground(Color.BLUE);
 		comboBox_7.setToolTipText("Month");
 		comboBox_7.setEnabled(false);
@@ -732,7 +720,7 @@ public class gui extends Thread{
 		comboBox_7.setBounds(542, 39, 57, 22);
 		frame.getContentPane().add(comboBox_7);
 
-		JComboBox comboBox_8 = new JComboBox();
+		final JComboBox comboBox_8 = new JComboBox();
 		comboBox_8.setForeground(Color.BLUE);
 		comboBox_8.setToolTipText("Year");
 		comboBox_8.setEnabled(false);
@@ -746,7 +734,7 @@ public class gui extends Thread{
 		comboBox_8.setBounds(605, 39, 57, 22);
 		frame.getContentPane().add(comboBox_8);
 
-		JComboBox comboBox_9 = new JComboBox();
+		final JComboBox comboBox_9 = new JComboBox();
 		comboBox_9.setForeground(Color.BLUE);
 		comboBox_9.setToolTipText("Day");
 		comboBox_9.setEnabled(false);
@@ -760,7 +748,7 @@ public class gui extends Thread{
 		comboBox_9.setBounds(476, 69, 57, 22);
 		frame.getContentPane().add(comboBox_9);
 
-		JComboBox comboBox_10 = new JComboBox();
+		final JComboBox comboBox_10 = new JComboBox();
 		comboBox_10.setForeground(Color.BLUE);
 		comboBox_10.setToolTipText("Month");
 		comboBox_10.setEnabled(false);
@@ -774,7 +762,7 @@ public class gui extends Thread{
 		comboBox_10.setBounds(542, 69, 57, 22);
 		frame.getContentPane().add(comboBox_10);
 
-		JComboBox comboBox_11 = new JComboBox();
+		final JComboBox comboBox_11 = new JComboBox();
 		comboBox_11.setForeground(Color.BLUE);
 		comboBox_11.setToolTipText("Year");
 		comboBox_11.setEnabled(false);
@@ -788,7 +776,7 @@ public class gui extends Thread{
 		comboBox_11.setBounds(605, 69, 57, 22);
 		frame.getContentPane().add(comboBox_11);
 
-		TextField textField_UserName = new TextField();
+		final TextField textField_UserName = new TextField();
 		textField_UserName.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_UserName.setForeground(Color.BLUE);
 		textField_UserName.setEnabled(false);
@@ -822,7 +810,7 @@ public class gui extends Thread{
 		txtpnMinLat.setBounds(160, 198, 70, 22);
 		frame.getContentPane().add(txtpnMinLat);
 
-		TextField textField_latMin = new TextField();
+		final TextField textField_latMin = new TextField();
 		textField_latMin.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_latMin.setForeground(Color.BLUE);
 		textField_latMin.setEnabled(false);
@@ -847,14 +835,14 @@ public class gui extends Thread{
 		txtpnMinAlt.setBounds(160, 255, 70, 22);
 		frame.getContentPane().add(txtpnMinAlt);
 
-		TextField textField_LonMin = new TextField();
+		final TextField textField_LonMin = new TextField();
 		textField_LonMin.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_LonMin.setForeground(Color.BLUE);
 		textField_LonMin.setEnabled(false);
 		textField_LonMin.setBounds(235, 223, 77, 21);
 		frame.getContentPane().add(textField_LonMin);
 
-		TextField textField_AltMin = new TextField();
+		final TextField textField_AltMin = new TextField();
 		textField_AltMin.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_AltMin.setForeground(Color.BLUE);
 		textField_AltMin.setEnabled(false);
@@ -870,7 +858,7 @@ public class gui extends Thread{
 		txtpnMaxLat.setBounds(338, 195, 72, 22);
 		frame.getContentPane().add(txtpnMaxLat);
 
-		TextField textField_latMax = new TextField();
+		final TextField textField_latMax = new TextField();
 		textField_latMax.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_latMax.setForeground(Color.BLUE);
 		textField_latMax.setEnabled(false);
@@ -895,14 +883,14 @@ public class gui extends Thread{
 		txtpnMaxAlt.setBounds(338, 252, 68, 22);
 		frame.getContentPane().add(txtpnMaxAlt);
 
-		TextField textField_LonMax = new TextField();
+		final TextField textField_LonMax = new TextField();
 		textField_LonMax.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_LonMax.setForeground(Color.BLUE);
 		textField_LonMax.setEnabled(false);
 		textField_LonMax.setBounds(416, 223, 77, 21);
 		frame.getContentPane().add(textField_LonMax);
 
-		TextField textField_AltMax = new TextField();
+		final TextField textField_AltMax = new TextField();
 		textField_AltMax.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_AltMax.setForeground(Color.BLUE);
 		textField_AltMax.setEnabled(false);
@@ -928,13 +916,13 @@ public class gui extends Thread{
 		btnUnfilter.setBounds(323, 290, 143, 41);
 		frame.getContentPane().add(btnUnfilter);
 
-		JCheckBox chckbxLat = new JCheckBox("Lat");
+		final JCheckBox chckbxLat = new JCheckBox("Lat");
 		chckbxLat.setFont(new Font("Tahoma", Font.BOLD, 15));
 		chckbxLat.setForeground(Color.BLUE);
-		JCheckBox chckbxLon = new JCheckBox("Lon");
+		final JCheckBox chckbxLon = new JCheckBox("Lon");
 		chckbxLon.setFont(new Font("Tahoma", Font.BOLD, 15));
 		chckbxLon.setForeground(Color.BLUE);
-		JCheckBox checkbxAlt = new JCheckBox("Alt");
+		final JCheckBox checkbxAlt = new JCheckBox("Alt");
 		checkbxAlt.setFont(new Font("Tahoma", Font.BOLD, 15));
 		checkbxAlt.setForeground(Color.BLUE);
 
@@ -1000,7 +988,7 @@ public class gui extends Thread{
 		checkbxAlt.setBounds(444, 165, 49, 25);
 		frame.getContentPane().add(checkbxAlt);
 
-		JCheckBox CheckBoxMinTime = new JCheckBox("");
+		final JCheckBox CheckBoxMinTime = new JCheckBox("");
 		CheckBoxMinTime.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -1039,7 +1027,7 @@ public class gui extends Thread{
 		CheckBoxMinTime.setBounds(160, 39, 25, 25);
 		frame.getContentPane().add(CheckBoxMinTime);
 
-		JCheckBox checkBoxMaxTime = new JCheckBox("");
+		final JCheckBox checkBoxMaxTime = new JCheckBox("");
 		checkBoxMaxTime.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -1165,7 +1153,7 @@ public class gui extends Thread{
 		rdbtLOCfilter.setBounds(160, 164, 155, 25);
 		frame.getContentPane().add(rdbtLOCfilter);
 		
-		TextField textField_corFilter = new TextField();
+		final TextField textField_corFilter = new TextField();
 		textField_corFilter.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_corFilter.setEnabled(false);
 		textField_corFilter.setEditable(false);
@@ -1558,7 +1546,7 @@ public class gui extends Thread{
 		btnSumbitFilter.setBounds(160, 290, 143, 41);
 		frame.getContentPane().add(btnSumbitFilter);
 
-		TextField textField_loadFilter = new TextField();
+		final TextField textField_loadFilter = new TextField();
 		textField_loadFilter.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_loadFilter.setEditable(false);
 		textField_loadFilter.setEnabled(false);
@@ -1845,7 +1833,7 @@ public class gui extends Thread{
 		btnNewButton.setBounds(96, 376, 16, -6);
 		frame.getContentPane().add(btnNewButton);
 
-		TextField textField_1 = new TextField();
+		final TextField textField_1 = new TextField();
 		textField_1.setFont(new Font("Dialog", Font.PLAIN, 16));
 		textField_1.setBounds(819, 39, 153, 21);
 		frame.getContentPane().add(textField_1);
@@ -1868,7 +1856,7 @@ public class gui extends Thread{
 		txtpnMac_1.setBounds(539, 220, 57, 22);
 		frame.getContentPane().add(txtpnMac_1);
 
-		TextField textField_algo2_mac1 = new TextField();
+		final TextField textField_algo2_mac1 = new TextField();
 		textField_algo2_mac1.setEnabled(false);
 		textField_algo2_mac1.setBounds(594, 220, 148, 21);
 		frame.getContentPane().add(textField_algo2_mac1);
@@ -1891,12 +1879,12 @@ public class gui extends Thread{
 		txtpnMac_3.setBounds(539, 277, 57, 22);
 		frame.getContentPane().add(txtpnMac_3);
 
-		TextField textField_algo2_mac2 = new TextField();
+		final TextField textField_algo2_mac2 = new TextField();
 		textField_algo2_mac2.setEnabled(false);
 		textField_algo2_mac2.setBounds(594, 248, 148, 21);
 		frame.getContentPane().add(textField_algo2_mac2);
 
-		TextField textField_algo2_mac3 = new TextField();
+		final TextField textField_algo2_mac3 = new TextField();
 		textField_algo2_mac3.setEnabled(false);
 		textField_algo2_mac3.setBounds(594, 277, 148, 21);
 		frame.getContentPane().add(textField_algo2_mac3);
@@ -1910,7 +1898,7 @@ public class gui extends Thread{
 		txtpnSig.setBounds(764, 221, 50, 22);
 		frame.getContentPane().add(txtpnSig);
 
-		TextField textField_algo2_sig1 = new TextField();
+		final TextField textField_algo2_sig1 = new TextField();
 		textField_algo2_sig1.setEnabled(false);
 		textField_algo2_sig1.setBounds(824, 221, 148, 21);
 		frame.getContentPane().add(textField_algo2_sig1);
@@ -1933,21 +1921,21 @@ public class gui extends Thread{
 		txtpnSig_2.setBounds(764, 277, 49, 22);
 		frame.getContentPane().add(txtpnSig_2);
 
-		TextField textField_algo2_sig2 = new TextField();
+		final TextField textField_algo2_sig2 = new TextField();
 		textField_algo2_sig2.setEnabled(false);
 		textField_algo2_sig2.setBounds(824, 249, 148, 21);
 		frame.getContentPane().add(textField_algo2_sig2);
 
-		TextField textField_algo2_sig3 = new TextField();
+		final TextField textField_algo2_sig3 = new TextField();
 		textField_algo2_sig3.setEnabled(false);
 		textField_algo2_sig3.setBounds(824, 278, 148, 21);
 		frame.getContentPane().add(textField_algo2_sig3);
-		JRadioButton radioButton_algo2B = new JRadioButton("Enter string:");
+		final JRadioButton radioButton_algo2B = new JRadioButton("Enter string:");
 		radioButton_algo2B.setFont(new Font("Tahoma", Font.BOLD, 15));
 		radioButton_algo2B.setForeground(Color.BLUE);
-		TextField textField_algo2bInput = new TextField();
+		final TextField textField_algo2bInput = new TextField();
 
-		JRadioButton radioButton_algo2A = new JRadioButton("");
+		final JRadioButton radioButton_algo2A = new JRadioButton("");
 		radioButton_algo2A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -1987,21 +1975,21 @@ public class gui extends Thread{
 		textField_algo2bInput.setBounds(539, 358, 433, 21);
 		frame.getContentPane().add(textField_algo2bInput);
 
-		TextField textField_algo1lon = new TextField();
+		final TextField textField_algo1lon = new TextField();
 		textField_algo1lon.setFont(new Font("Dialog", Font.BOLD, 16));
 		textField_algo1lon.setEnabled(false);
 		textField_algo1lon.setEditable(false);
 		textField_algo1lon.setBounds(819, 102, 153, 21);
 		frame.getContentPane().add(textField_algo1lon);
 
-		TextField textField_algo1alt = new TextField();
+		final TextField textField_algo1alt = new TextField();
 		textField_algo1alt.setFont(new Font("Dialog", Font.BOLD, 16));
 		textField_algo1alt.setEnabled(false);
 		textField_algo1alt.setEditable(false);
 		textField_algo1alt.setBounds(819, 130, 153, 21);
 		frame.getContentPane().add(textField_algo1alt);
 
-		TextField textField_algo1lat = new TextField();
+		final TextField textField_algo1lat = new TextField();
 		textField_algo1lat.setFont(new Font("Dialog", Font.BOLD, 16));
 		textField_algo1lat.setEditable(false);
 		textField_algo1lat.setEnabled(false);
@@ -2036,21 +2024,21 @@ public class gui extends Thread{
 		btnSubmit.setBounds(688, 73, 108, 78);
 		frame.getContentPane().add(btnSubmit);
 
-		TextField textField_algo2lat = new TextField();
+		final TextField textField_algo2lat = new TextField();
 		textField_algo2lat.setFont(new Font("Dialog", Font.BOLD, 12));
 		textField_algo2lat.setEnabled(false);
 		textField_algo2lat.setEditable(false);
 		textField_algo2lat.setBounds(673, 397, 155, 21);
 		frame.getContentPane().add(textField_algo2lat);
 
-		TextField textField_algo2lon = new TextField();
+		final TextField textField_algo2lon = new TextField();
 		textField_algo2lon.setFont(new Font("Dialog", Font.BOLD, 12));
 		textField_algo2lon.setEnabled(false);
 		textField_algo2lon.setEditable(false);
 		textField_algo2lon.setBounds(673, 426, 155, 21);
 		frame.getContentPane().add(textField_algo2lon);
 
-		TextField textField_algo2alt = new TextField();
+		final TextField textField_algo2alt = new TextField();
 		textField_algo2alt.setFont(new Font("Dialog", Font.BOLD, 12));
 		textField_algo2alt.setEnabled(false);
 		textField_algo2alt.setEditable(false);
@@ -2564,7 +2552,7 @@ public class gui extends Thread{
 		txtpnIp.setBounds(12, 542, 57, 22);
 		frame.getContentPane().add(txtpnIp);
 		
-		TextField textField_IP = new TextField();
+		final TextField textField_IP = new TextField();
 		textField_IP.setBounds(126, 543, 148, 21);
 		frame.getContentPane().add(textField_IP);
 		
@@ -2586,11 +2574,11 @@ public class gui extends Thread{
 		txtpnPassword.setBounds(12, 599, 100, 22);
 		frame.getContentPane().add(txtpnPassword);
 		
-		TextField textField_USER = new TextField();
+		final TextField textField_USER = new TextField();
 		textField_USER.setBounds(126, 571, 148, 21);
 		frame.getContentPane().add(textField_USER);
 		
-		TextField textField_PASS = new TextField();
+		final TextField textField_PASS = new TextField();
 		textField_PASS.setBounds(126, 600, 148, 21);
 		frame.getContentPane().add(textField_PASS);
 		
@@ -2621,15 +2609,15 @@ public class gui extends Thread{
 		txtpnDatabase.setBounds(12, 625, 100, 22);
 		frame.getContentPane().add(txtpnDatabase);
 		
-		TextField textField_PORT = new TextField();
+		final TextField textField_PORT = new TextField();
 		textField_PORT.setBounds(126, 626, 148, 21);
 		frame.getContentPane().add(textField_PORT);
 		
-		TextField textField_DB = new TextField();
+		final TextField textField_DB = new TextField();
 		textField_DB.setBounds(126, 654, 148, 21);
 		frame.getContentPane().add(textField_DB);
 		
-		TextField textField_TABLE = new TextField();
+		final TextField textField_TABLE = new TextField();
 		textField_TABLE.setBounds(126, 683, 148, 21);
 		frame.getContentPane().add(textField_TABLE);
 		
