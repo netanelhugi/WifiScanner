@@ -13,5 +13,5 @@ run the the class "gui".<br />
 
 ![alt text](https://i.imgur.com/9URixxk.png) <br/>
 
-To read about the options in the system, enter the folder "docs/assignment3" <br/>
+To read about the options in the system, enter the folder "docs/assignment4" <br/>
 
