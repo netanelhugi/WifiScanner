@@ -8,9 +8,6 @@ Hananel Meron, 302326137 <br />
 This is our github repository for course tasks.<br />
 The repository contains our java project,input&output files, javaDoc and other assignments docs.<br />
 
-**How to run?**<br />
-run the the class "gui".<br />
-
 ![alt text](https://i.imgur.com/9URixxk.png) <br/>
 
 To read about the options in the system, enter the folder "docs/assignment4" <br/>
